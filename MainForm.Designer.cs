@@ -82,6 +82,7 @@
             this.abonamenteButton.TabIndex = 4;
             this.abonamenteButton.Text = "Abonamente oferite";
             this.abonamenteButton.UseVisualStyleBackColor = true;
+            this.abonamenteButton.Click += new System.EventHandler(this.abonamenteButton_Click);
             // 
             // platiButton
             // 

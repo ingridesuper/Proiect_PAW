@@ -32,7 +32,7 @@ namespace _2_1058_PISLARU_INGRID
             _totalCount = _clientRepository.GetTotalCount();
             _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
 
-            clientTotalCountTextBox.Text = _totalCount.ToString();
+            totalCountTextBox.Text = _totalCount.ToString();
             currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
 
             EvaluateButtons();
@@ -101,22 +101,8 @@ namespace _2_1058_PISLARU_INGRID
             }
         }
 
-        private void viewOnlyCurrentClientsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _currentPage = 1;
-            _viewOnlyCurrentClients = true;
-            _viewOnlyPastClients = false;
-            _totalCount = _clientRepository.GetTotalCurrentClientsCount(); 
-            _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
-
-            clientTotalCountTextBox.Text = _totalCount.ToString();
-            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
-
-            EvaluateButtons();
-            clientDataGridView.AutoGenerateColumns = true;
-            clientDataGridView.DataSource = _clientRepository.FetchCurrentClients(_currentPage, _pageSize);
-        }
-
+        
+        //de comasat in constructor formului - adaugat apel la metoda asta
         private void viewAllClientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _currentPage = 1;
@@ -125,12 +111,28 @@ namespace _2_1058_PISLARU_INGRID
             _totalCount = _clientRepository.GetTotalCount();
             _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
 
-            clientTotalCountTextBox.Text = _totalCount.ToString();
+            totalCountTextBox.Text = _totalCount.ToString();
             currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
 
             EvaluateButtons();
             clientDataGridView.AutoGenerateColumns = true;
             clientDataGridView.DataSource = _clientRepository.FetchAllClients(_currentPage, _pageSize);
+        }
+
+        private void viewOnlyCurrentClientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _currentPage = 1;
+            _viewOnlyCurrentClients = true;
+            _viewOnlyPastClients = false;
+            _totalCount = _clientRepository.GetTotalCurrentClientsCount();
+            _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
+
+            totalCountTextBox.Text = _totalCount.ToString();
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+
+            EvaluateButtons();
+            clientDataGridView.AutoGenerateColumns = true;
+            clientDataGridView.DataSource = _clientRepository.FetchCurrentClients(_currentPage, _pageSize);
         }
 
         private void viewOnlyPastClientsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -141,7 +143,7 @@ namespace _2_1058_PISLARU_INGRID
             _totalCount = _clientRepository.GetTotalPastClientsCount();
             _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
 
-            clientTotalCountTextBox.Text = _totalCount.ToString();
+            totalCountTextBox.Text = _totalCount.ToString();
             currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
 
             EvaluateButtons();

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.clientDataGridView = new System.Windows.Forms.DataGridView();
-            this.clientTotalCountLabel = new System.Windows.Forms.Label();
-            this.clientTotalCountTextBox = new System.Windows.Forms.TextBox();
+            this.totalCountLabel = new System.Windows.Forms.Label();
+            this.totalCountTextBox = new System.Windows.Forms.TextBox();
             this.previousPageButton = new System.Windows.Forms.Button();
             this.nextPageButton = new System.Windows.Forms.Button();
             this.currentPageLabel = new System.Windows.Forms.Label();
@@ -60,28 +60,28 @@
             this.clientDataGridView.Size = new System.Drawing.Size(1497, 721);
             this.clientDataGridView.TabIndex = 0;
             // 
-            // clientTotalCountLabel
+            // totalCountLabel
             // 
-            this.clientTotalCountLabel.AutoSize = true;
-            this.clientTotalCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clientTotalCountLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.clientTotalCountLabel.Location = new System.Drawing.Point(1298, 140);
-            this.clientTotalCountLabel.Name = "clientTotalCountLabel";
-            this.clientTotalCountLabel.Size = new System.Drawing.Size(127, 25);
-            this.clientTotalCountLabel.TabIndex = 1;
-            this.clientTotalCountLabel.Text = "Total count:";
+            this.totalCountLabel.AutoSize = true;
+            this.totalCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalCountLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.totalCountLabel.Location = new System.Drawing.Point(1298, 140);
+            this.totalCountLabel.Name = "totalCountLabel";
+            this.totalCountLabel.Size = new System.Drawing.Size(127, 25);
+            this.totalCountLabel.TabIndex = 1;
+            this.totalCountLabel.Text = "Total count:";
             // 
-            // clientTotalCountTextBox
+            // totalCountTextBox
             // 
-            this.clientTotalCountTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.clientTotalCountTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.clientTotalCountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clientTotalCountTextBox.ForeColor = System.Drawing.SystemColors.Control;
-            this.clientTotalCountTextBox.Location = new System.Drawing.Point(1431, 142);
-            this.clientTotalCountTextBox.Name = "clientTotalCountTextBox";
-            this.clientTotalCountTextBox.ReadOnly = true;
-            this.clientTotalCountTextBox.Size = new System.Drawing.Size(66, 22);
-            this.clientTotalCountTextBox.TabIndex = 2;
+            this.totalCountTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.totalCountTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.totalCountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalCountTextBox.ForeColor = System.Drawing.SystemColors.Control;
+            this.totalCountTextBox.Location = new System.Drawing.Point(1431, 142);
+            this.totalCountTextBox.Name = "totalCountTextBox";
+            this.totalCountTextBox.ReadOnly = true;
+            this.totalCountTextBox.Size = new System.Drawing.Size(66, 22);
+            this.totalCountTextBox.TabIndex = 2;
             // 
             // previousPageButton
             // 
@@ -179,8 +179,8 @@
             this.Controls.Add(this.currentPageLabel);
             this.Controls.Add(this.nextPageButton);
             this.Controls.Add(this.previousPageButton);
-            this.Controls.Add(this.clientTotalCountTextBox);
-            this.Controls.Add(this.clientTotalCountLabel);
+            this.Controls.Add(this.totalCountTextBox);
+            this.Controls.Add(this.totalCountLabel);
             this.Controls.Add(this.clientDataGridView);
             this.Controls.Add(this.clientMenuStrip);
             this.MainMenuStrip = this.clientMenuStrip;
@@ -198,8 +198,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView clientDataGridView;
-        private System.Windows.Forms.Label clientTotalCountLabel;
-        private System.Windows.Forms.TextBox clientTotalCountTextBox;
+        private System.Windows.Forms.Label totalCountLabel;
+        private System.Windows.Forms.TextBox totalCountTextBox;
         private System.Windows.Forms.Button previousPageButton;
         private System.Windows.Forms.Button nextPageButton;
         private System.Windows.Forms.Label currentPageLabel;

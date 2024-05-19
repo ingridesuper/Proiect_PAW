@@ -1,4 +1,5 @@
 ﻿using _2_1058_PISLARU_INGRID.Repositories;
+using _2_1058_PISLARU_INGRID.AddForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -67,6 +68,26 @@ namespace _2_1058_PISLARU_INGRID
 
             EvaluateButtons();
 
+            clientAbonamentDataGridView.DataSource = _clientAbonamentRepository.FetchAllClientAbonament(_currentPage, _pageSize);
+        }
+
+        private void addClientAbonamentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var addClientAbonamentForm = new AddClientAbonamentForm();
+            addClientAbonamentForm.Owner = this;
+            addClientAbonamentForm.ShowDialog();
+        }
+
+        public void RefreshDataGridView()
+        {
+            _currentPage = 1;
+            _totalCount = _clientAbonamentRepository.GetTotalCount();
+            _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
+
+            totalCountTextBox.Text = _totalCount.ToString();
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+
+            EvaluateButtons();
             clientAbonamentDataGridView.DataSource = _clientAbonamentRepository.FetchAllClientAbonament(_currentPage, _pageSize);
         }
     }

@@ -61,13 +61,13 @@ namespace _2_1058_PISLARU_INGRID
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            string nume = numeTextBox.Text;
+            string nume = clientIdTextBox.Text;
             if (string.IsNullOrWhiteSpace(nume))
             {
                 MessageBox.Show("Numele nu poate fi gol.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string email=emailTextBox.Text;
+            string email=tipAbonamentIdTextBox.Text;
             if (string.IsNullOrWhiteSpace(email))
             {
                 MessageBox.Show("Emailul nu poate fi gol.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);

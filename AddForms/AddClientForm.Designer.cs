@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.telefonTextBox = new System.Windows.Forms.TextBox();
+            this.telefonLabel = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.addClientLabel = new System.Windows.Forms.Label();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.numeTextBox = new System.Windows.Forms.TextBox();
+            this.tipAbonamentIdTextBox = new System.Windows.Forms.TextBox();
+            this.clientIdTextBox = new System.Windows.Forms.TextBox();
+            this.clientIdLabel = new System.Windows.Forms.Label();
             this.numeLabel = new System.Windows.Forms.Label();
-            this.emailLabel = new System.Windows.Forms.Label();
-            this.telefonTextBox = new System.Windows.Forms.TextBox();
-            this.telefonLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,15 +49,35 @@
             this.panel1.Controls.Add(this.cancelButton);
             this.panel1.Controls.Add(this.saveButton);
             this.panel1.Controls.Add(this.addClientLabel);
-            this.panel1.Controls.Add(this.emailTextBox);
-            this.panel1.Controls.Add(this.numeTextBox);
+            this.panel1.Controls.Add(this.tipAbonamentIdTextBox);
+            this.panel1.Controls.Add(this.clientIdTextBox);
+            this.panel1.Controls.Add(this.clientIdLabel);
             this.panel1.Controls.Add(this.numeLabel);
-            this.panel1.Controls.Add(this.emailLabel);
             this.panel1.Location = new System.Drawing.Point(288, -1);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(494, 657);
             this.panel1.TabIndex = 5;
+            // 
+            // telefonTextBox
+            // 
+            this.telefonTextBox.Location = new System.Drawing.Point(225, 299);
+            this.telefonTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.telefonTextBox.Name = "telefonTextBox";
+            this.telefonTextBox.Size = new System.Drawing.Size(155, 22);
+            this.telefonTextBox.TabIndex = 13;
+            // 
+            // telefonLabel
+            // 
+            this.telefonLabel.AutoSize = true;
+            this.telefonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.82081F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefonLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.telefonLabel.Location = new System.Drawing.Point(130, 299);
+            this.telefonLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.telefonLabel.Name = "telefonLabel";
+            this.telefonLabel.Size = new System.Drawing.Size(78, 22);
+            this.telefonLabel.TabIndex = 12;
+            this.telefonLabel.Text = "Telefon";
             // 
             // cancelButton
             // 
@@ -93,65 +113,45 @@
             this.addClientLabel.TabIndex = 9;
             this.addClientLabel.Text = "Adaugati un client!";
             // 
-            // emailTextBox
+            // tipAbonamentIdTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(225, 251);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(155, 22);
-            this.emailTextBox.TabIndex = 8;
+            this.tipAbonamentIdTextBox.Location = new System.Drawing.Point(225, 251);
+            this.tipAbonamentIdTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.tipAbonamentIdTextBox.Name = "tipAbonamentIdTextBox";
+            this.tipAbonamentIdTextBox.Size = new System.Drawing.Size(155, 22);
+            this.tipAbonamentIdTextBox.TabIndex = 8;
             // 
-            // numeTextBox
+            // clientIdTextBox
             // 
-            this.numeTextBox.Location = new System.Drawing.Point(225, 205);
-            this.numeTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.numeTextBox.Name = "numeTextBox";
-            this.numeTextBox.Size = new System.Drawing.Size(155, 22);
-            this.numeTextBox.TabIndex = 7;
+            this.clientIdTextBox.Location = new System.Drawing.Point(225, 205);
+            this.clientIdTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.clientIdTextBox.Name = "clientIdTextBox";
+            this.clientIdTextBox.Size = new System.Drawing.Size(155, 22);
+            this.clientIdTextBox.TabIndex = 7;
+            // 
+            // clientIdLabel
+            // 
+            this.clientIdLabel.AutoSize = true;
+            this.clientIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.82081F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clientIdLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.clientIdLabel.Location = new System.Drawing.Point(131, 203);
+            this.clientIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.clientIdLabel.Name = "clientIdLabel";
+            this.clientIdLabel.Size = new System.Drawing.Size(87, 22);
+            this.clientIdLabel.TabIndex = 5;
+            this.clientIdLabel.Text = "Client ID";
             // 
             // numeLabel
             // 
             this.numeLabel.AutoSize = true;
             this.numeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.82081F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numeLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.numeLabel.Location = new System.Drawing.Point(131, 203);
+            this.numeLabel.Location = new System.Drawing.Point(147, 251);
             this.numeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.numeLabel.Name = "numeLabel";
             this.numeLabel.Size = new System.Drawing.Size(61, 22);
-            this.numeLabel.TabIndex = 5;
+            this.numeLabel.TabIndex = 6;
             this.numeLabel.Text = "Nume";
-            // 
-            // emailLabel
-            // 
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.82081F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.emailLabel.Location = new System.Drawing.Point(133, 251);
-            this.emailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(59, 22);
-            this.emailLabel.TabIndex = 6;
-            this.emailLabel.Text = "Email";
-            // 
-            // telefonTextBox
-            // 
-            this.telefonTextBox.Location = new System.Drawing.Point(225, 299);
-            this.telefonTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.telefonTextBox.Name = "telefonTextBox";
-            this.telefonTextBox.Size = new System.Drawing.Size(155, 22);
-            this.telefonTextBox.TabIndex = 13;
-            // 
-            // telefonLabel
-            // 
-            this.telefonLabel.AutoSize = true;
-            this.telefonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.82081F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefonLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.telefonLabel.Location = new System.Drawing.Point(114, 299);
-            this.telefonLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.telefonLabel.Name = "telefonLabel";
-            this.telefonLabel.Size = new System.Drawing.Size(78, 22);
-            this.telefonLabel.TabIndex = 12;
-            this.telefonLabel.Text = "Telefon";
             // 
             // AddClientForm
             // 
@@ -175,10 +175,10 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Label addClientLabel;
-        private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.TextBox numeTextBox;
+        private System.Windows.Forms.TextBox tipAbonamentIdTextBox;
+        private System.Windows.Forms.TextBox clientIdTextBox;
+        private System.Windows.Forms.Label clientIdLabel;
         private System.Windows.Forms.Label numeLabel;
-        private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox telefonTextBox;
         private System.Windows.Forms.Label telefonLabel;
     }

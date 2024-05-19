@@ -68,5 +68,23 @@ namespace _2_1058_PISLARU_INGRID.Repositories
 
             return data;
         }
+
+        public void AddTipAbonament(TipAbonament tipAbonament)
+        {
+            string sql = $"INSERT INTO tipabonament(id, nume, pret) VALUES ({tipAbonament.Id}, '{tipAbonament.Nume}', {tipAbonament.Pret})";
+
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                conn.Close();
+            }
+        }
+
     }
 }

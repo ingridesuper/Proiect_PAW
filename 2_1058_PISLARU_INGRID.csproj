@@ -83,6 +83,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClientForm.Designer.cs">
+      <DependentUpon>AddClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddTipAbonamentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     <Compile Include="Repositories\ClientRepository.cs" />
     <Compile Include="Repositories\PlatiRepository.cs" />
     <Compile Include="Repositories\TipAbonamentRepository.cs" />
+    <EmbeddedResource Include="AddClientForm.resx">
+      <DependentUpon>AddClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddTipAbonamentForm.resx">
       <DependentUpon>AddTipAbonamentForm.cs</DependentUpon>
     </EmbeddedResource>

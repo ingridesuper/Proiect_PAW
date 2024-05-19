@@ -82,7 +82,14 @@ namespace _2_1058_PISLARU_INGRID
 
         public void RefreshDataGridView()
         {
-            _currentPage= 1;
+            _currentPage = 1;
+            _totalCount = _tipAbonamentRepository.GetTotalCount();
+            _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
+
+            totalCountTextBox.Text = _totalCount.ToString();
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+
+            EvaluateButtons();
             tipAbonamentDataGridView.DataSource = _tipAbonamentRepository.FetchAllTipAbonament(_currentPage, _pageSize);
         }
 

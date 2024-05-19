@@ -195,5 +195,22 @@ namespace _2_1058_PISLARU_INGRID.Repositories
 
             return data;
         }
+
+        public void AddClient(Client client)
+        {
+            string sql = $"INSERT INTO client(id, nume, email, telefon) VALUES ('{client.Id}', '{client.Nume}', '{client.Email}', '{client.Telefon}')";
+
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                conn.Close();
+            }
+        }
     }
 }

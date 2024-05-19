@@ -40,6 +40,8 @@
             this.viewOnlyCurrentClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewOnlyPastClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.clientDataGridView)).BeginInit();
             this.clientMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -52,12 +54,13 @@
             this.clientDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.clientDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.clientDataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.clientDataGridView.Location = new System.Drawing.Point(12, 182);
+            this.clientDataGridView.Location = new System.Drawing.Point(9, 121);
+            this.clientDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.clientDataGridView.Name = "clientDataGridView";
             this.clientDataGridView.ReadOnly = true;
             this.clientDataGridView.RowHeadersWidth = 74;
             this.clientDataGridView.RowTemplate.Height = 31;
-            this.clientDataGridView.Size = new System.Drawing.Size(1497, 721);
+            this.clientDataGridView.Size = new System.Drawing.Size(1089, 481);
             this.clientDataGridView.TabIndex = 0;
             // 
             // totalCountLabel
@@ -65,9 +68,10 @@
             this.totalCountLabel.AutoSize = true;
             this.totalCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCountLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.totalCountLabel.Location = new System.Drawing.Point(1298, 140);
+            this.totalCountLabel.Location = new System.Drawing.Point(944, 93);
+            this.totalCountLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.totalCountLabel.Name = "totalCountLabel";
-            this.totalCountLabel.Size = new System.Drawing.Size(127, 25);
+            this.totalCountLabel.Size = new System.Drawing.Size(88, 16);
             this.totalCountLabel.TabIndex = 1;
             this.totalCountLabel.Text = "Total count:";
             // 
@@ -77,17 +81,19 @@
             this.totalCountTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.totalCountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCountTextBox.ForeColor = System.Drawing.SystemColors.Control;
-            this.totalCountTextBox.Location = new System.Drawing.Point(1431, 142);
+            this.totalCountTextBox.Location = new System.Drawing.Point(1041, 95);
+            this.totalCountTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.totalCountTextBox.Name = "totalCountTextBox";
             this.totalCountTextBox.ReadOnly = true;
-            this.totalCountTextBox.Size = new System.Drawing.Size(66, 22);
+            this.totalCountTextBox.Size = new System.Drawing.Size(48, 15);
             this.totalCountTextBox.TabIndex = 2;
             // 
             // previousPageButton
             // 
-            this.previousPageButton.Location = new System.Drawing.Point(1231, 921);
+            this.previousPageButton.Location = new System.Drawing.Point(895, 614);
+            this.previousPageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.previousPageButton.Name = "previousPageButton";
-            this.previousPageButton.Size = new System.Drawing.Size(118, 35);
+            this.previousPageButton.Size = new System.Drawing.Size(86, 23);
             this.previousPageButton.TabIndex = 3;
             this.previousPageButton.Text = "Previous";
             this.previousPageButton.UseVisualStyleBackColor = true;
@@ -95,9 +101,10 @@
             // 
             // nextPageButton
             // 
-            this.nextPageButton.Location = new System.Drawing.Point(1376, 921);
+            this.nextPageButton.Location = new System.Drawing.Point(1001, 614);
+            this.nextPageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nextPageButton.Name = "nextPageButton";
-            this.nextPageButton.Size = new System.Drawing.Size(118, 35);
+            this.nextPageButton.Size = new System.Drawing.Size(86, 23);
             this.nextPageButton.TabIndex = 4;
             this.nextPageButton.Text = "Next";
             this.nextPageButton.UseVisualStyleBackColor = true;
@@ -108,9 +115,10 @@
             this.currentPageLabel.AutoSize = true;
             this.currentPageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPageLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.currentPageLabel.Location = new System.Drawing.Point(22, 926);
+            this.currentPageLabel.Location = new System.Drawing.Point(16, 617);
+            this.currentPageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.currentPageLabel.Name = "currentPageLabel";
-            this.currentPageLabel.Size = new System.Drawing.Size(138, 24);
+            this.currentPageLabel.Size = new System.Drawing.Size(100, 16);
             this.currentPageLabel.TabIndex = 5;
             this.currentPageLabel.Text = "Current page:";
             // 
@@ -120,21 +128,23 @@
             this.currentPageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.currentPageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPageTextBox.ForeColor = System.Drawing.SystemColors.Control;
-            this.currentPageTextBox.Location = new System.Drawing.Point(173, 929);
+            this.currentPageTextBox.Location = new System.Drawing.Point(126, 619);
+            this.currentPageTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.currentPageTextBox.Name = "currentPageTextBox";
             this.currentPageTextBox.ReadOnly = true;
-            this.currentPageTextBox.Size = new System.Drawing.Size(100, 22);
+            this.currentPageTextBox.Size = new System.Drawing.Size(73, 15);
             this.currentPageTextBox.TabIndex = 6;
             // 
             // clientMenuStrip
             // 
-            this.clientMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.clientMenuStrip.ImageScalingSize = new System.Drawing.Size(29, 29);
             this.clientMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewToolStripMenuItem});
+            this.viewToolStripMenuItem,
+            this.fileToolStripMenuItem});
             this.clientMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.clientMenuStrip.Name = "clientMenuStrip";
-            this.clientMenuStrip.Size = new System.Drawing.Size(1521, 39);
+            this.clientMenuStrip.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.clientMenuStrip.Size = new System.Drawing.Size(1106, 26);
             this.clientMenuStrip.TabIndex = 7;
             this.clientMenuStrip.Text = "menuStrip1";
             // 
@@ -145,36 +155,51 @@
             this.viewOnlyPastClientsToolStripMenuItem,
             this.viewAllClientsToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(81, 35);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // viewOnlyCurrentClientsToolStripMenuItem
             // 
             this.viewOnlyCurrentClientsToolStripMenuItem.Name = "viewOnlyCurrentClientsToolStripMenuItem";
-            this.viewOnlyCurrentClientsToolStripMenuItem.Size = new System.Drawing.Size(383, 42);
+            this.viewOnlyCurrentClientsToolStripMenuItem.Size = new System.Drawing.Size(251, 26);
             this.viewOnlyCurrentClientsToolStripMenuItem.Text = "View only current clients";
             this.viewOnlyCurrentClientsToolStripMenuItem.Click += new System.EventHandler(this.viewOnlyCurrentClientsToolStripMenuItem_Click);
             // 
             // viewOnlyPastClientsToolStripMenuItem
             // 
             this.viewOnlyPastClientsToolStripMenuItem.Name = "viewOnlyPastClientsToolStripMenuItem";
-            this.viewOnlyPastClientsToolStripMenuItem.Size = new System.Drawing.Size(383, 42);
+            this.viewOnlyPastClientsToolStripMenuItem.Size = new System.Drawing.Size(251, 26);
             this.viewOnlyPastClientsToolStripMenuItem.Text = "View only past clients";
             this.viewOnlyPastClientsToolStripMenuItem.Click += new System.EventHandler(this.viewOnlyPastClientsToolStripMenuItem_Click);
             // 
             // viewAllClientsToolStripMenuItem
             // 
             this.viewAllClientsToolStripMenuItem.Name = "viewAllClientsToolStripMenuItem";
-            this.viewAllClientsToolStripMenuItem.Size = new System.Drawing.Size(383, 42);
+            this.viewAllClientsToolStripMenuItem.Size = new System.Drawing.Size(251, 26);
             this.viewAllClientsToolStripMenuItem.Text = "View all clients";
             this.viewAllClientsToolStripMenuItem.Click += new System.EventHandler(this.viewAllClientsToolStripMenuItem_Click);
             // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addClientToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // addClientToolStripMenuItem
+            // 
+            this.addClientToolStripMenuItem.Name = "addClientToolStripMenuItem";
+            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.addClientToolStripMenuItem.Text = "Add client";
+            this.addClientToolStripMenuItem.Click += new System.EventHandler(this.addClientToolStripMenuItem_Click);
+            // 
             // ClientiForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1521, 982);
+            this.ClientSize = new System.Drawing.Size(1106, 655);
             this.Controls.Add(this.currentPageTextBox);
             this.Controls.Add(this.currentPageLabel);
             this.Controls.Add(this.nextPageButton);
@@ -184,6 +209,7 @@
             this.Controls.Add(this.clientDataGridView);
             this.Controls.Add(this.clientMenuStrip);
             this.MainMenuStrip = this.clientMenuStrip;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ClientiForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientiForm";
@@ -209,5 +235,7 @@
         private System.Windows.Forms.ToolStripMenuItem viewOnlyCurrentClientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewOnlyPastClientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewAllClientsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addClientToolStripMenuItem;
     }
 }

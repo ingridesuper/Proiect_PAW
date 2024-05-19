@@ -150,5 +150,24 @@ namespace _2_1058_PISLARU_INGRID
             clientDataGridView.AutoGenerateColumns = true;
             clientDataGridView.DataSource = _clientRepository.FetchPastClients(_currentPage, _pageSize);
         }
+
+        private void addClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var addClientForm = new AddClientForm();
+            addClientForm.Owner = this;
+            addClientForm.ShowDialog();
+        }
+        public void RefreshDataGridView()
+        {
+            _currentPage = 1;
+            _totalCount = _clientRepository.GetTotalCount();
+            _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
+
+            totalCountTextBox.Text = _totalCount.ToString();
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+
+            EvaluateButtons();
+            clientDataGridView.DataSource = _clientRepository.FetchAllClients(_currentPage, _pageSize);
+        }
     }
 }

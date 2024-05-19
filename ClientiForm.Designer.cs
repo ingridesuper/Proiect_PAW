@@ -65,7 +65,7 @@
             this.clientTotalCountLabel.AutoSize = true;
             this.clientTotalCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientTotalCountLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.clientTotalCountLabel.Location = new System.Drawing.Point(1245, 141);
+            this.clientTotalCountLabel.Location = new System.Drawing.Point(1298, 140);
             this.clientTotalCountLabel.Name = "clientTotalCountLabel";
             this.clientTotalCountLabel.Size = new System.Drawing.Size(127, 25);
             this.clientTotalCountLabel.TabIndex = 1;
@@ -77,10 +77,10 @@
             this.clientTotalCountTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.clientTotalCountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientTotalCountTextBox.ForeColor = System.Drawing.SystemColors.Control;
-            this.clientTotalCountTextBox.Location = new System.Drawing.Point(1378, 143);
+            this.clientTotalCountTextBox.Location = new System.Drawing.Point(1431, 142);
             this.clientTotalCountTextBox.Name = "clientTotalCountTextBox";
             this.clientTotalCountTextBox.ReadOnly = true;
-            this.clientTotalCountTextBox.Size = new System.Drawing.Size(100, 22);
+            this.clientTotalCountTextBox.Size = new System.Drawing.Size(66, 22);
             this.clientTotalCountTextBox.TabIndex = 2;
             // 
             // previousPageButton
@@ -160,6 +160,7 @@
             this.viewOnlyPastClientsToolStripMenuItem.Name = "viewOnlyPastClientsToolStripMenuItem";
             this.viewOnlyPastClientsToolStripMenuItem.Size = new System.Drawing.Size(383, 42);
             this.viewOnlyPastClientsToolStripMenuItem.Text = "View only past clients";
+            this.viewOnlyPastClientsToolStripMenuItem.Click += new System.EventHandler(this.viewOnlyPastClientsToolStripMenuItem_Click);
             // 
             // viewAllClientsToolStripMenuItem
             // 

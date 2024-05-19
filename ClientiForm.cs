@@ -38,7 +38,7 @@ namespace _2_1058_PISLARU_INGRID
             EvaluateButtons();
 
             clientDataGridView.AutoGenerateColumns = true;
-            clientDataGridView.DataSource = _clientRepository.FetchData(_currentPage, _pageSize);
+            clientDataGridView.DataSource = _clientRepository.FetchAllClients(_currentPage, _pageSize);
         }
 
         private void EvaluateButtons()
@@ -67,9 +67,13 @@ namespace _2_1058_PISLARU_INGRID
                 {
                     clientDataGridView.DataSource = _clientRepository.FetchCurrentClients(_currentPage, _pageSize);
                 }
+                else if (_viewOnlyPastClients)
+                {
+                    clientDataGridView.DataSource = _clientRepository.FetchPastClients(_currentPage, _pageSize);
+                }
                 else
                 {
-                    clientDataGridView.DataSource = _clientRepository.FetchData(_currentPage, _pageSize);
+                    clientDataGridView.DataSource = _clientRepository.FetchAllClients(_currentPage, _pageSize);
                 }
             }
         }
@@ -86,9 +90,13 @@ namespace _2_1058_PISLARU_INGRID
                 {
                     clientDataGridView.DataSource = _clientRepository.FetchCurrentClients(_currentPage, _pageSize);
                 }
+                else if (_viewOnlyPastClients)
+                {
+                    clientDataGridView.DataSource = _clientRepository.FetchPastClients(_currentPage, _pageSize);
+                }
                 else
                 {
-                    clientDataGridView.DataSource = _clientRepository.FetchData(_currentPage, _pageSize);
+                    clientDataGridView.DataSource = _clientRepository.FetchAllClients(_currentPage, _pageSize);
                 }
             }
         }
@@ -97,6 +105,7 @@ namespace _2_1058_PISLARU_INGRID
         {
             _currentPage = 1;
             _viewOnlyCurrentClients = true;
+            _viewOnlyPastClients = false;
             _totalCount = _clientRepository.GetTotalCurrentClientsCount(); 
             _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
 
@@ -112,6 +121,7 @@ namespace _2_1058_PISLARU_INGRID
         {
             _currentPage = 1;
             _viewOnlyCurrentClients = false;
+            _viewOnlyPastClients = false;
             _totalCount = _clientRepository.GetTotalCount();
             _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
 
@@ -120,7 +130,23 @@ namespace _2_1058_PISLARU_INGRID
 
             EvaluateButtons();
             clientDataGridView.AutoGenerateColumns = true;
-            clientDataGridView.DataSource = _clientRepository.FetchData(_currentPage, _pageSize);
+            clientDataGridView.DataSource = _clientRepository.FetchAllClients(_currentPage, _pageSize);
+        }
+
+        private void viewOnlyPastClientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _currentPage = 1;
+            _viewOnlyCurrentClients = false;
+            _viewOnlyPastClients= true;
+            _totalCount = _clientRepository.GetTotalPastClientsCount();
+            _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
+
+            clientTotalCountTextBox.Text = _totalCount.ToString();
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+
+            EvaluateButtons();
+            clientDataGridView.AutoGenerateColumns = true;
+            clientDataGridView.DataSource = _clientRepository.FetchPastClients(_currentPage, _pageSize);
         }
     }
 }

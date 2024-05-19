@@ -49,7 +49,26 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             return count;
         }
 
-        public List<Client> FetchData(int currentPage, int pageSize)
+        public int GetTotalPastClientsCount()
+        {
+            int count;
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                var sql = "SELECT COUNT(*) FROM client where id not in (select clientid from clientabonament)";
+                using (var command = new OracleCommand(sql, conn))
+                {
+                    count = Convert.ToInt32(command.ExecuteScalar());
+                }
+
+                conn.Close();
+            }
+
+            return count;
+        }
+
+        public List<Client> FetchAllClients(int currentPage, int pageSize)
         {
             var data = new List<Client>();
 
@@ -105,6 +124,48 @@ namespace _2_1058_PISLARU_INGRID.Repositories
 
                 string sql = $"SELECT distinct c.* from client c inner join clientabonament ca on c.id=ca.clientid ORDER BY c.ID OFFSET :skip ROWS " +
                     $"FETCH NEXT :take ROWS ONLY";
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("skip", OracleDbType.Int32).Value = skip;
+                    cmd.Parameters.Add("take", OracleDbType.Int32).Value = take;
+
+                    OracleDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        Client client = new Client();
+                        client.Id = int.Parse(dataReader["ID"].ToString());
+                        client.Nume = dataReader["NUME"].ToString();
+                        client.Email = dataReader["EMAIL"].ToString();
+
+                        var telefon = dataReader["TELEFON"];
+                        if (telefon != DBNull.Value)
+                        {
+                            client.Telefon = telefon.ToString();
+                        }
+
+                        data.Add(client);
+                    }
+                }
+
+                conn.Close();
+            }
+
+            return data;
+        }
+
+        public List<Client> FetchPastClients(int currentPage, int pageSize)
+        {
+            var data = new List<Client>();
+
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                var skip = (currentPage - 1) * pageSize;
+                var take = pageSize;
+
+                string sql = $"SELECT * from client where id not in (select clientid from clientabonament) order by id OFFSET :skip ROWS " + $"FETCH NEXT :take ROWS ONLY";
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {

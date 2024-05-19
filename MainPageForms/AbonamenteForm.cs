@@ -71,5 +71,13 @@ namespace _2_1058_PISLARU_INGRID
 
             tipAbonamentDataGridView.DataSource = _tipAbonamentRepository.FetchAllTipAbonament(_currentPage, _pageSize);
         }
+
+        
+        private void addNewAbonamentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var addTipAbonamentForm = new AddTipAbonamentForm();
+            addTipAbonamentForm.ShowDialog();
+        }
+        
     }
 }

@@ -83,22 +83,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbonamenteForm.cs">
+    <Compile Include="AddTipAbonamentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbonamenteForm.Designer.cs">
+    <Compile Include="AddTipAbonamentForm.Designer.cs">
+      <DependentUpon>AddTipAbonamentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainPageForms\AbonamenteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPageForms\AbonamenteForm.Designer.cs">
       <DependentUpon>AbonamenteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientAbonamentForm.cs">
+    <Compile Include="MainPageForms\ClientAbonamentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientAbonamentForm.Designer.cs">
+    <Compile Include="MainPageForms\ClientAbonamentForm.Designer.cs">
       <DependentUpon>ClientAbonamentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientiForm.cs">
+    <Compile Include="MainPageForms\ClientiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientiForm.Designer.cs">
+    <Compile Include="MainPageForms\ClientiForm.Designer.cs">
       <DependentUpon>ClientiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
@@ -112,10 +118,10 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlatiForm.cs">
+    <Compile Include="MainPageForms\PlatiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PlatiForm.Designer.cs">
+    <Compile Include="MainPageForms\PlatiForm.Designer.cs">
       <DependentUpon>PlatiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -124,19 +130,22 @@
     <Compile Include="Repositories\ClientRepository.cs" />
     <Compile Include="Repositories\PlatiRepository.cs" />
     <Compile Include="Repositories\TipAbonamentRepository.cs" />
-    <EmbeddedResource Include="AbonamenteForm.resx">
+    <EmbeddedResource Include="AddTipAbonamentForm.resx">
+      <DependentUpon>AddTipAbonamentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPageForms\AbonamenteForm.resx">
       <DependentUpon>AbonamenteForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientAbonamentForm.resx">
+    <EmbeddedResource Include="MainPageForms\ClientAbonamentForm.resx">
       <DependentUpon>ClientAbonamentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientiForm.resx">
+    <EmbeddedResource Include="MainPageForms\ClientiForm.resx">
       <DependentUpon>ClientiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PlatiForm.resx">
+    <EmbeddedResource Include="MainPageForms\PlatiForm.resx">
       <DependentUpon>PlatiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

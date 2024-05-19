@@ -35,7 +35,11 @@
             this.totalCountTextBox = new System.Windows.Forms.TextBox();
             this.totalCountLabel = new System.Windows.Forms.Label();
             this.tipAbonamentDataGridView = new System.Windows.Forms.DataGridView();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewAbonamentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tipAbonamentDataGridView)).BeginInit();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // currentPageTextBox
@@ -57,7 +61,7 @@
             this.currentPageLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.currentPageLabel.Location = new System.Drawing.Point(22, 924);
             this.currentPageLabel.Name = "currentPageLabel";
-            this.currentPageLabel.Size = new System.Drawing.Size(138, 24);
+            this.currentPageLabel.Size = new System.Drawing.Size(145, 25);
             this.currentPageLabel.TabIndex = 12;
             this.currentPageLabel.Text = "Current page:";
             // 
@@ -120,6 +124,33 @@
             this.tipAbonamentDataGridView.Size = new System.Drawing.Size(1497, 721);
             this.tipAbonamentDataGridView.TabIndex = 7;
             // 
+            // menuStrip
+            // 
+            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(29, 29);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1521, 39);
+            this.menuStrip.TabIndex = 14;
+            this.menuStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewAbonamentToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(67, 35);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // addNewAbonamentToolStripMenuItem
+            // 
+            this.addNewAbonamentToolStripMenuItem.Name = "addNewAbonamentToolStripMenuItem";
+            this.addNewAbonamentToolStripMenuItem.Size = new System.Drawing.Size(348, 42);
+            this.addNewAbonamentToolStripMenuItem.Text = "Add new abonament";
+            this.addNewAbonamentToolStripMenuItem.Click += new System.EventHandler(this.addNewAbonamentToolStripMenuItem_Click);
+            // 
             // AbonamenteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -133,10 +164,14 @@
             this.Controls.Add(this.totalCountTextBox);
             this.Controls.Add(this.totalCountLabel);
             this.Controls.Add(this.tipAbonamentDataGridView);
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "AbonamenteForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AbonamenteForm";
             ((System.ComponentModel.ISupportInitialize)(this.tipAbonamentDataGridView)).EndInit();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +186,8 @@
         private System.Windows.Forms.TextBox totalCountTextBox;
         private System.Windows.Forms.Label totalCountLabel;
         private System.Windows.Forms.DataGridView tipAbonamentDataGridView;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewAbonamentToolStripMenuItem;
     }
 }

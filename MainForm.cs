@@ -33,5 +33,17 @@ namespace _2_1058_PISLARU_INGRID
             var abonamenteForm = new AbonamenteForm();
             abonamenteForm.ShowDialog();
         }
+
+        private void platiButton_Click(object sender, EventArgs e)
+        {
+            var platiForm = new PlatiForm();
+            platiForm.ShowDialog();
+        }
+
+        private void pacheteActiveButton_Click(object sender, EventArgs e)
+        {
+            var pacheteActive=new ClientAbonamentForm();
+            pacheteActive.ShowDialog();
+        }
     }
 }

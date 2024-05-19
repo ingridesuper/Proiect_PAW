@@ -68,6 +68,7 @@
             this.pacheteActiveButton.TabIndex = 5;
             this.pacheteActiveButton.Text = "Pachete active";
             this.pacheteActiveButton.UseVisualStyleBackColor = true;
+            this.pacheteActiveButton.Click += new System.EventHandler(this.pacheteActiveButton_Click);
             // 
             // abonamenteButton
             // 
@@ -97,6 +98,7 @@
             this.platiButton.TabIndex = 3;
             this.platiButton.Text = "Plati";
             this.platiButton.UseVisualStyleBackColor = true;
+            this.platiButton.Click += new System.EventHandler(this.platiButton_Click);
             // 
             // clientiButton
             // 

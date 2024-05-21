@@ -95,6 +95,12 @@
     <Compile Include="AddForms\AddClientForm.Designer.cs">
       <DependentUpon>AddClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddForms\AddPlataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddForms\AddPlataForm.Designer.cs">
+      <DependentUpon>AddPlataForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddForms\AddTipAbonamentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddForms\AddClientForm.resx">
       <DependentUpon>AddClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddForms\AddPlataForm.resx">
+      <DependentUpon>AddPlataForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddForms\AddTipAbonamentForm.resx">
       <DependentUpon>AddTipAbonamentForm.cs</DependentUpon>

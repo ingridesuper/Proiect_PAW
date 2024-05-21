@@ -49,10 +49,9 @@
             this.backgroundPanel.Controls.Add(this.clientiButton);
             this.backgroundPanel.Controls.Add(this.welcomeLabel);
             this.backgroundPanel.Controls.Add(this.phonePictureBox);
-            this.backgroundPanel.Location = new System.Drawing.Point(421, 0);
-            this.backgroundPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.backgroundPanel.Location = new System.Drawing.Point(344, 0);
             this.backgroundPanel.Name = "backgroundPanel";
-            this.backgroundPanel.Size = new System.Drawing.Size(685, 984);
+            this.backgroundPanel.Size = new System.Drawing.Size(560, 820);
             this.backgroundPanel.TabIndex = 0;
             // 
             // pacheteActiveButton
@@ -61,10 +60,9 @@
             this.pacheteActiveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pacheteActiveButton.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pacheteActiveButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pacheteActiveButton.Location = new System.Drawing.Point(0, 573);
-            this.pacheteActiveButton.Margin = new System.Windows.Forms.Padding(4);
+            this.pacheteActiveButton.Location = new System.Drawing.Point(0, 478);
             this.pacheteActiveButton.Name = "pacheteActiveButton";
-            this.pacheteActiveButton.Size = new System.Drawing.Size(685, 105);
+            this.pacheteActiveButton.Size = new System.Drawing.Size(560, 88);
             this.pacheteActiveButton.TabIndex = 5;
             this.pacheteActiveButton.Text = "Pachete active";
             this.pacheteActiveButton.UseVisualStyleBackColor = true;
@@ -76,10 +74,9 @@
             this.abonamenteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.abonamenteButton.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.abonamenteButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.abonamenteButton.Location = new System.Drawing.Point(0, 459);
-            this.abonamenteButton.Margin = new System.Windows.Forms.Padding(4);
+            this.abonamenteButton.Location = new System.Drawing.Point(0, 382);
             this.abonamenteButton.Name = "abonamenteButton";
-            this.abonamenteButton.Size = new System.Drawing.Size(685, 105);
+            this.abonamenteButton.Size = new System.Drawing.Size(560, 88);
             this.abonamenteButton.TabIndex = 4;
             this.abonamenteButton.Text = "Abonamente oferite";
             this.abonamenteButton.UseVisualStyleBackColor = true;
@@ -91,10 +88,9 @@
             this.platiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.platiButton.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.platiButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.platiButton.Location = new System.Drawing.Point(0, 345);
-            this.platiButton.Margin = new System.Windows.Forms.Padding(4);
+            this.platiButton.Location = new System.Drawing.Point(0, 288);
             this.platiButton.Name = "platiButton";
-            this.platiButton.Size = new System.Drawing.Size(685, 105);
+            this.platiButton.Size = new System.Drawing.Size(560, 88);
             this.platiButton.TabIndex = 3;
             this.platiButton.Text = "Plati";
             this.platiButton.UseVisualStyleBackColor = true;
@@ -106,10 +102,9 @@
             this.clientiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clientiButton.Font = new System.Drawing.Font("Nirmala UI", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientiButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.clientiButton.Location = new System.Drawing.Point(0, 687);
-            this.clientiButton.Margin = new System.Windows.Forms.Padding(4);
+            this.clientiButton.Location = new System.Drawing.Point(0, 572);
             this.clientiButton.Name = "clientiButton";
-            this.clientiButton.Size = new System.Drawing.Size(685, 105);
+            this.clientiButton.Size = new System.Drawing.Size(560, 88);
             this.clientiButton.TabIndex = 2;
             this.clientiButton.Text = "Clienti";
             this.clientiButton.UseVisualStyleBackColor = true;
@@ -120,32 +115,29 @@
             this.welcomeLabel.AutoSize = true;
             this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.welcomeLabel.ForeColor = System.Drawing.Color.SteelBlue;
-            this.welcomeLabel.Location = new System.Drawing.Point(249, 224);
-            this.welcomeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.welcomeLabel.Location = new System.Drawing.Point(204, 187);
             this.welcomeLabel.Name = "welcomeLabel";
-            this.welcomeLabel.Size = new System.Drawing.Size(201, 32);
+            this.welcomeLabel.Size = new System.Drawing.Size(170, 29);
             this.welcomeLabel.TabIndex = 1;
             this.welcomeLabel.Text = "Bine ati venit!";
             // 
             // phonePictureBox
             // 
             this.phonePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("phonePictureBox.Image")));
-            this.phonePictureBox.Location = new System.Drawing.Point(278, 62);
-            this.phonePictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.phonePictureBox.Location = new System.Drawing.Point(227, 52);
             this.phonePictureBox.Name = "phonePictureBox";
-            this.phonePictureBox.Size = new System.Drawing.Size(138, 138);
+            this.phonePictureBox.Size = new System.Drawing.Size(113, 115);
             this.phonePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.phonePictureBox.TabIndex = 0;
             this.phonePictureBox.TabStop = false;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1521, 982);
+            this.ClientSize = new System.Drawing.Size(1244, 819);
             this.Controls.Add(this.backgroundPanel);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";

@@ -23,7 +23,7 @@ namespace _2_1058_PISLARU_INGRID
             _clientRepository = new ClientRepository();
         }
 
-
+        //de mutat metodele astea in repository
         private int GetNextAvailableID()
         {
             int newId = 0;

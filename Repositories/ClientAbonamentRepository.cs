@@ -92,6 +92,7 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             }
         }
 
+        //nu au neaparat ce cauta aici, pot fi intr-un script general ie n au treaba cu acest repo in sine
         public bool TipAbonamentExists(int abonamentId)
         {
             using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))

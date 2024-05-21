@@ -48,10 +48,11 @@
             this.currentPageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.currentPageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPageTextBox.ForeColor = System.Drawing.SystemColors.Control;
-            this.currentPageTextBox.Location = new System.Drawing.Point(173, 927);
+            this.currentPageTextBox.Location = new System.Drawing.Point(142, 772);
+            this.currentPageTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.currentPageTextBox.Name = "currentPageTextBox";
             this.currentPageTextBox.ReadOnly = true;
-            this.currentPageTextBox.Size = new System.Drawing.Size(100, 22);
+            this.currentPageTextBox.Size = new System.Drawing.Size(82, 18);
             this.currentPageTextBox.TabIndex = 13;
             // 
             // currentPageLabel
@@ -59,17 +60,19 @@
             this.currentPageLabel.AutoSize = true;
             this.currentPageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPageLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.currentPageLabel.Location = new System.Drawing.Point(22, 924);
+            this.currentPageLabel.Location = new System.Drawing.Point(18, 770);
+            this.currentPageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.currentPageLabel.Name = "currentPageLabel";
-            this.currentPageLabel.Size = new System.Drawing.Size(145, 25);
+            this.currentPageLabel.Size = new System.Drawing.Size(119, 20);
             this.currentPageLabel.TabIndex = 12;
             this.currentPageLabel.Text = "Current page:";
             // 
             // nextPageButton
             // 
-            this.nextPageButton.Location = new System.Drawing.Point(1376, 919);
+            this.nextPageButton.Location = new System.Drawing.Point(1126, 766);
+            this.nextPageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nextPageButton.Name = "nextPageButton";
-            this.nextPageButton.Size = new System.Drawing.Size(118, 35);
+            this.nextPageButton.Size = new System.Drawing.Size(97, 29);
             this.nextPageButton.TabIndex = 11;
             this.nextPageButton.Text = "Next";
             this.nextPageButton.UseVisualStyleBackColor = true;
@@ -77,9 +80,10 @@
             // 
             // previousPageButton
             // 
-            this.previousPageButton.Location = new System.Drawing.Point(1231, 919);
+            this.previousPageButton.Location = new System.Drawing.Point(1007, 766);
+            this.previousPageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.previousPageButton.Name = "previousPageButton";
-            this.previousPageButton.Size = new System.Drawing.Size(118, 35);
+            this.previousPageButton.Size = new System.Drawing.Size(97, 29);
             this.previousPageButton.TabIndex = 10;
             this.previousPageButton.Text = "Previous";
             this.previousPageButton.UseVisualStyleBackColor = true;
@@ -91,10 +95,11 @@
             this.totalCountTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.totalCountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCountTextBox.ForeColor = System.Drawing.SystemColors.Control;
-            this.totalCountTextBox.Location = new System.Drawing.Point(1431, 140);
+            this.totalCountTextBox.Location = new System.Drawing.Point(1171, 117);
+            this.totalCountTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.totalCountTextBox.Name = "totalCountTextBox";
             this.totalCountTextBox.ReadOnly = true;
-            this.totalCountTextBox.Size = new System.Drawing.Size(66, 22);
+            this.totalCountTextBox.Size = new System.Drawing.Size(54, 18);
             this.totalCountTextBox.TabIndex = 9;
             // 
             // totalCountLabel
@@ -102,9 +107,10 @@
             this.totalCountLabel.AutoSize = true;
             this.totalCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCountLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.totalCountLabel.Location = new System.Drawing.Point(1298, 138);
+            this.totalCountLabel.Location = new System.Drawing.Point(1062, 115);
+            this.totalCountLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.totalCountLabel.Name = "totalCountLabel";
-            this.totalCountLabel.Size = new System.Drawing.Size(127, 25);
+            this.totalCountLabel.Size = new System.Drawing.Size(104, 20);
             this.totalCountLabel.TabIndex = 8;
             this.totalCountLabel.Text = "Total count:";
             // 
@@ -116,12 +122,13 @@
             this.tipAbonamentDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.tipAbonamentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tipAbonamentDataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.tipAbonamentDataGridView.Location = new System.Drawing.Point(12, 180);
+            this.tipAbonamentDataGridView.Location = new System.Drawing.Point(10, 150);
+            this.tipAbonamentDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tipAbonamentDataGridView.Name = "tipAbonamentDataGridView";
             this.tipAbonamentDataGridView.ReadOnly = true;
             this.tipAbonamentDataGridView.RowHeadersWidth = 74;
             this.tipAbonamentDataGridView.RowTemplate.Height = 31;
-            this.tipAbonamentDataGridView.Size = new System.Drawing.Size(1497, 721);
+            this.tipAbonamentDataGridView.Size = new System.Drawing.Size(1225, 601);
             this.tipAbonamentDataGridView.TabIndex = 7;
             // 
             // menuStrip
@@ -132,7 +139,8 @@
             this.fileToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1521, 39);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(1244, 33);
             this.menuStrip.TabIndex = 14;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -141,22 +149,22 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNewAbonamentToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(67, 35);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // addNewAbonamentToolStripMenuItem
             // 
             this.addNewAbonamentToolStripMenuItem.Name = "addNewAbonamentToolStripMenuItem";
-            this.addNewAbonamentToolStripMenuItem.Size = new System.Drawing.Size(348, 42);
+            this.addNewAbonamentToolStripMenuItem.Size = new System.Drawing.Size(281, 34);
             this.addNewAbonamentToolStripMenuItem.Text = "Add new abonament";
             this.addNewAbonamentToolStripMenuItem.Click += new System.EventHandler(this.addNewAbonamentToolStripMenuItem_Click);
             // 
             // AbonamenteForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1521, 982);
+            this.ClientSize = new System.Drawing.Size(1244, 819);
             this.Controls.Add(this.currentPageTextBox);
             this.Controls.Add(this.currentPageLabel);
             this.Controls.Add(this.nextPageButton);
@@ -166,6 +174,7 @@
             this.Controls.Add(this.tipAbonamentDataGridView);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AbonamenteForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AbonamenteForm";

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _2_1058_PISLARU_INGRID.AddForms;
 using _2_1058_PISLARU_INGRID.Repositories;
 
 namespace _2_1058_PISLARU_INGRID
@@ -69,6 +70,26 @@ namespace _2_1058_PISLARU_INGRID
             EvaluateButtons();
 
             platiDataGridView.DataSource = _platiRepository.FetchAllPlati(_currentPage, _pageSize);
+        }
+
+        public void RefreshDataGridView()
+        {
+            _currentPage = 1;
+            _totalCount = _platiRepository.GetTotalCount();
+            _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
+
+            totalCountTextBox.Text = _totalCount.ToString();
+            currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
+
+            EvaluateButtons();
+            platiDataGridView.DataSource = _platiRepository.FetchAllPlati(_currentPage, _pageSize);
+        }
+
+        private void addPlataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var addPlataForm=new AddPlataForm();
+            addPlataForm.Owner=this;
+            addPlataForm.ShowDialog();
         }
     }
 }

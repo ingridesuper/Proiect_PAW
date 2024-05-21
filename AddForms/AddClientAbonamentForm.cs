@@ -16,6 +16,8 @@ namespace _2_1058_PISLARU_INGRID.AddForms
 {
     public partial class AddClientAbonamentForm : Form
     {
+        //de sters variabila asta
+        //si de adaugat toate metodele care au treaba cu ea in alt folder
         private ClientAbonamentRepository _clientAbonamentRepository;
         public AddClientAbonamentForm()
         {
@@ -33,14 +35,14 @@ namespace _2_1058_PISLARU_INGRID.AddForms
         private void saveButton_Click(object sender, EventArgs e)
         {
             int clientId, abonamentId;
-            double? discount = null;  // Inițializează discount ca null implicit
+            double? discount = null;  
             var dataStart = dataStartDateTimePicker.Value.Date;
             var dataEnd = dataEndDateTimePicker.Value.Date;
 
             if (!int.TryParse(clientIdTextBox.Text, out clientId))
             {
                 MessageBox.Show("Id-ul clientului trebuie sa fie un numar intreg!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;  // Adaugă return pentru a opri execuția dacă există o eroare
+                return;  
             }
 
             if (!int.TryParse(tipAbonamentIdTextBox.Text, out abonamentId))
@@ -64,6 +66,12 @@ namespace _2_1058_PISLARU_INGRID.AddForms
             if (_clientAbonamentRepository.ClientTipAbonamentExists(clientId, abonamentId))
             {
                 MessageBox.Show("Acest client deja are acest tip", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (dataStart > dataEnd)
+            {
+                MessageBox.Show("Data de inceput nu poate fi mai mare decat data de final!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

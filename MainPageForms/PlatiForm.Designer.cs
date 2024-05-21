@@ -35,7 +35,11 @@
             this.totalCountTextBox = new System.Windows.Forms.TextBox();
             this.totalCountLabel = new System.Windows.Forms.Label();
             this.platiDataGridView = new System.Windows.Forms.DataGridView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addPlataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.platiDataGridView)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // currentPageTextBox
@@ -44,10 +48,11 @@
             this.currentPageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.currentPageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPageTextBox.ForeColor = System.Drawing.SystemColors.Control;
-            this.currentPageTextBox.Location = new System.Drawing.Point(173, 930);
+            this.currentPageTextBox.Location = new System.Drawing.Point(142, 775);
+            this.currentPageTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.currentPageTextBox.Name = "currentPageTextBox";
             this.currentPageTextBox.ReadOnly = true;
-            this.currentPageTextBox.Size = new System.Drawing.Size(100, 22);
+            this.currentPageTextBox.Size = new System.Drawing.Size(82, 18);
             this.currentPageTextBox.TabIndex = 20;
             // 
             // currentPageLabel
@@ -55,17 +60,19 @@
             this.currentPageLabel.AutoSize = true;
             this.currentPageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPageLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.currentPageLabel.Location = new System.Drawing.Point(22, 927);
+            this.currentPageLabel.Location = new System.Drawing.Point(18, 772);
+            this.currentPageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.currentPageLabel.Name = "currentPageLabel";
-            this.currentPageLabel.Size = new System.Drawing.Size(145, 25);
+            this.currentPageLabel.Size = new System.Drawing.Size(119, 20);
             this.currentPageLabel.TabIndex = 19;
             this.currentPageLabel.Text = "Current page:";
             // 
             // nextPageButton
             // 
-            this.nextPageButton.Location = new System.Drawing.Point(1376, 922);
+            this.nextPageButton.Location = new System.Drawing.Point(1126, 768);
+            this.nextPageButton.Margin = new System.Windows.Forms.Padding(2);
             this.nextPageButton.Name = "nextPageButton";
-            this.nextPageButton.Size = new System.Drawing.Size(118, 35);
+            this.nextPageButton.Size = new System.Drawing.Size(97, 29);
             this.nextPageButton.TabIndex = 18;
             this.nextPageButton.Text = "Next";
             this.nextPageButton.UseVisualStyleBackColor = true;
@@ -73,9 +80,10 @@
             // 
             // previousPageButton
             // 
-            this.previousPageButton.Location = new System.Drawing.Point(1231, 922);
+            this.previousPageButton.Location = new System.Drawing.Point(1007, 768);
+            this.previousPageButton.Margin = new System.Windows.Forms.Padding(2);
             this.previousPageButton.Name = "previousPageButton";
-            this.previousPageButton.Size = new System.Drawing.Size(118, 35);
+            this.previousPageButton.Size = new System.Drawing.Size(97, 29);
             this.previousPageButton.TabIndex = 17;
             this.previousPageButton.Text = "Previous";
             this.previousPageButton.UseVisualStyleBackColor = true;
@@ -87,10 +95,11 @@
             this.totalCountTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.totalCountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCountTextBox.ForeColor = System.Drawing.SystemColors.Control;
-            this.totalCountTextBox.Location = new System.Drawing.Point(1431, 143);
+            this.totalCountTextBox.Location = new System.Drawing.Point(1171, 119);
+            this.totalCountTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.totalCountTextBox.Name = "totalCountTextBox";
             this.totalCountTextBox.ReadOnly = true;
-            this.totalCountTextBox.Size = new System.Drawing.Size(66, 22);
+            this.totalCountTextBox.Size = new System.Drawing.Size(54, 18);
             this.totalCountTextBox.TabIndex = 16;
             // 
             // totalCountLabel
@@ -98,9 +107,10 @@
             this.totalCountLabel.AutoSize = true;
             this.totalCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCountLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.totalCountLabel.Location = new System.Drawing.Point(1298, 141);
+            this.totalCountLabel.Location = new System.Drawing.Point(1062, 118);
+            this.totalCountLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.totalCountLabel.Name = "totalCountLabel";
-            this.totalCountLabel.Size = new System.Drawing.Size(127, 25);
+            this.totalCountLabel.Size = new System.Drawing.Size(104, 20);
             this.totalCountLabel.TabIndex = 15;
             this.totalCountLabel.Text = "Total count:";
             // 
@@ -112,20 +122,48 @@
             this.platiDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.platiDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.platiDataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.platiDataGridView.Location = new System.Drawing.Point(12, 183);
+            this.platiDataGridView.Location = new System.Drawing.Point(10, 152);
+            this.platiDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.platiDataGridView.Name = "platiDataGridView";
             this.platiDataGridView.ReadOnly = true;
             this.platiDataGridView.RowHeadersWidth = 74;
             this.platiDataGridView.RowTemplate.Height = 31;
-            this.platiDataGridView.Size = new System.Drawing.Size(1497, 721);
+            this.platiDataGridView.Size = new System.Drawing.Size(1225, 601);
             this.platiDataGridView.TabIndex = 14;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1244, 33);
+            this.menuStrip1.TabIndex = 21;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addPlataToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // addPlataToolStripMenuItem
+            // 
+            this.addPlataToolStripMenuItem.Name = "addPlataToolStripMenuItem";
+            this.addPlataToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.addPlataToolStripMenuItem.Text = "Add plata";
+            this.addPlataToolStripMenuItem.Click += new System.EventHandler(this.addPlataToolStripMenuItem_Click);
             // 
             // PlatiForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1521, 982);
+            this.ClientSize = new System.Drawing.Size(1244, 819);
             this.Controls.Add(this.currentPageTextBox);
             this.Controls.Add(this.currentPageLabel);
             this.Controls.Add(this.nextPageButton);
@@ -133,10 +171,15 @@
             this.Controls.Add(this.totalCountTextBox);
             this.Controls.Add(this.totalCountLabel);
             this.Controls.Add(this.platiDataGridView);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PlatiForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlatiForm";
             ((System.ComponentModel.ISupportInitialize)(this.platiDataGridView)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +194,8 @@
         private System.Windows.Forms.TextBox totalCountTextBox;
         private System.Windows.Forms.Label totalCountLabel;
         private System.Windows.Forms.DataGridView platiDataGridView;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addPlataToolStripMenuItem;
     }
 }

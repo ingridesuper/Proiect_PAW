@@ -151,8 +151,6 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                     cmd.Parameters.Add(new OracleParameter("id", OracleDbType.Int32)).Value = id;
                     cmd.ExecuteNonQuery(); 
                 }
-                //nu functioneaza!!!! expected number got date - incearca acum
-
                 conn.Close();
             }
         }
@@ -170,8 +168,6 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                     cmd.Parameters.Add(new OracleParameter("pretNou", pretNou));
                     cmd.ExecuteNonQuery();
                 }
-                //nu functioneaza!!!! expected number got date - incearca acum
-
                 conn.Close();
             }
         }

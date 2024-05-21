@@ -119,5 +119,22 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 conn.Close();
             }
         }
+
+        public void DeletePlata(Plata plata)
+        {
+            string sql = $"delete from plata where id=:plataId";
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("plataId", plata.Id));
+                    cmd.ExecuteNonQuery(); //de verificat ca nu s plati asociate
+                }
+
+                conn.Close();
+            }
+        }
     }
 }

@@ -107,15 +107,16 @@ namespace _2_1058_PISLARU_INGRID
             clientAbonamentDataGridView.DataSource = _clientAbonamentRepository.FetchAllClientAbonament(_currentPage, _pageSize);
         }
 
-        private bool ClientulAreDeExecutatPlati(int clientId)
+        private bool ClientulAreDeExecutatPlati(int clientId, int abonamentId)
         {
             using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
             {
                 conn.Open();
-                string sql = "SELECT COUNT(*) FROM plata WHERE clientid = :clientId";
+                string sql = "SELECT COUNT(*) FROM plata WHERE clientid = :clientId and tipabonamentid=:tipabonament";
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
                     cmd.Parameters.Add("clientId", OracleDbType.Int32).Value = clientId;
+                    cmd.Parameters.Add("tipabonament", OracleDbType.Int32).Value = abonamentId;
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     return count > 0;
                 }
@@ -137,7 +138,7 @@ namespace _2_1058_PISLARU_INGRID
 
             if (columnName == "Delete")
             {
-                if(ClientulAreDeExecutatPlati(clientAbonament.ClientId))
+                if(ClientulAreDeExecutatPlati(clientAbonament.ClientId, clientAbonament.TipAbonamentId))
                 {
                     MessageBox.Show("Clientul intai trebuie sa-si execute plata inainte sa fie dezabonat.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

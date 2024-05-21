@@ -130,6 +130,7 @@
             this.platiDataGridView.RowTemplate.Height = 31;
             this.platiDataGridView.Size = new System.Drawing.Size(1225, 601);
             this.platiDataGridView.TabIndex = 14;
+            this.platiDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.platiDataGridView_CellContentClick);
             // 
             // menuStrip1
             // 
@@ -154,7 +155,7 @@
             // addPlataToolStripMenuItem
             // 
             this.addPlataToolStripMenuItem.Name = "addPlataToolStripMenuItem";
-            this.addPlataToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.addPlataToolStripMenuItem.Size = new System.Drawing.Size(192, 34);
             this.addPlataToolStripMenuItem.Text = "Add plata";
             this.addPlataToolStripMenuItem.Click += new System.EventHandler(this.addPlataToolStripMenuItem_Click);
             // 

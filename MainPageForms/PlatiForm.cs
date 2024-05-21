@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _2_1058_PISLARU_INGRID.AddForms;
+using _2_1058_PISLARU_INGRID.Entities;
 using _2_1058_PISLARU_INGRID.Repositories;
 
 namespace _2_1058_PISLARU_INGRID
@@ -36,6 +37,19 @@ namespace _2_1058_PISLARU_INGRID
 
             platiDataGridView.AutoGenerateColumns = true;
             platiDataGridView.DataSource = _platiRepository.FetchAllPlati(_currentPage, _pageSize);
+            CreateButtonColumn("Plateste", "Platita", "Delete");
+        }
+
+        private void CreateButtonColumn(string headerText, string buttonText, string columnName)
+        {
+            DataGridViewButtonColumn column = new DataGridViewButtonColumn();
+            column.HeaderText = headerText;
+            column.Text = buttonText;
+            //This means that all buttons in the column will have the same text
+            column.UseColumnTextForButtonValue = true;
+            column.Name = columnName;
+
+            platiDataGridView.Columns.Add(column);
         }
 
         private void EvaluateButtons()
@@ -90,6 +104,40 @@ namespace _2_1058_PISLARU_INGRID
             var addPlataForm=new AddPlataForm();
             addPlataForm.Owner=this;
             addPlataForm.ShowDialog();
+        }
+
+        private void platiDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //It gets the name of the column that was clicked based on the ColumnIndex property
+            //of the DataGridViewCellEventArgs. This allows us to determine which button column
+            //was clicked.
+            var grid = (DataGridView)sender;
+            var columnName = grid.Columns[e.ColumnIndex].Name;
+
+            // This line retrieves the Product object associated with the clicked row. It uses
+            // the DataBoundItem property of the DataGridViewRow to get the underlying data object
+            // bound to the row.
+            var plata = (Plata)grid.Rows[e.RowIndex].DataBoundItem;
+
+            if (columnName == "Delete")
+            {
+     
+                var result = MessageBox.Show($"Sunteti sigur ca s-a efectuat plata?",
+                    "Please confirm your action",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.OK)
+                {
+                    _platiRepository.DeletePlata(plata);
+                    RefreshDataGridView();
+                }
+
+            }
+            if (columnName == "EditColumn")
+            {
+                //edit
+            }
         }
     }
 }

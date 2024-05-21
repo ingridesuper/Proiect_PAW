@@ -42,6 +42,7 @@ namespace _2_1058_PISLARU_INGRID
             clientDataGridView.AutoGenerateColumns = true;
             clientDataGridView.DataSource = _clientRepository.FetchAllClients(_currentPage, _pageSize);
             CreateButtonColumn("Delete", "Delete", "Delete");
+            CreateButtonColumn("Edit", "Edit", "Edit");
         }
 
         private void CreateButtonColumn(string headerText, string buttonText, string columnName)
@@ -233,9 +234,11 @@ namespace _2_1058_PISLARU_INGRID
                 }
 
             }
-            if (columnName == "EditColumn")
+            if (columnName == "Edit")
             {
-                //edit
+                var editClientForm = new EditClientForm();
+                editClientForm.Owner = this;
+                editClientForm.ShowDialog();
             }
         }
     }

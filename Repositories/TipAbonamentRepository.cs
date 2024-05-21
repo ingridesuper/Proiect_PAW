@@ -86,5 +86,21 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             }
         }
 
+        public void DeleteTipAbonament(TipAbonament tipAbonament)
+        {
+            string sql = $"delete from tipabonament where id=:id";
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("id", tipAbonament.Id));
+                    cmd.ExecuteNonQuery();
+                }
+
+                conn.Close();
+            }
+        }
     }
 }

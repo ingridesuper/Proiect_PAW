@@ -49,7 +49,7 @@
             this.currentPageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPageTextBox.ForeColor = System.Drawing.SystemColors.Control;
             this.currentPageTextBox.Location = new System.Drawing.Point(142, 772);
-            this.currentPageTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.currentPageTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.currentPageTextBox.Name = "currentPageTextBox";
             this.currentPageTextBox.ReadOnly = true;
             this.currentPageTextBox.Size = new System.Drawing.Size(82, 18);
@@ -70,7 +70,7 @@
             // nextPageButton
             // 
             this.nextPageButton.Location = new System.Drawing.Point(1126, 766);
-            this.nextPageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nextPageButton.Margin = new System.Windows.Forms.Padding(2);
             this.nextPageButton.Name = "nextPageButton";
             this.nextPageButton.Size = new System.Drawing.Size(97, 29);
             this.nextPageButton.TabIndex = 11;
@@ -81,7 +81,7 @@
             // previousPageButton
             // 
             this.previousPageButton.Location = new System.Drawing.Point(1007, 766);
-            this.previousPageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.previousPageButton.Margin = new System.Windows.Forms.Padding(2);
             this.previousPageButton.Name = "previousPageButton";
             this.previousPageButton.Size = new System.Drawing.Size(97, 29);
             this.previousPageButton.TabIndex = 10;
@@ -96,7 +96,7 @@
             this.totalCountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.907515F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCountTextBox.ForeColor = System.Drawing.SystemColors.Control;
             this.totalCountTextBox.Location = new System.Drawing.Point(1171, 117);
-            this.totalCountTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.totalCountTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.totalCountTextBox.Name = "totalCountTextBox";
             this.totalCountTextBox.ReadOnly = true;
             this.totalCountTextBox.Size = new System.Drawing.Size(54, 18);
@@ -123,13 +123,14 @@
             this.tipAbonamentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tipAbonamentDataGridView.GridColor = System.Drawing.SystemColors.Control;
             this.tipAbonamentDataGridView.Location = new System.Drawing.Point(10, 150);
-            this.tipAbonamentDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tipAbonamentDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.tipAbonamentDataGridView.Name = "tipAbonamentDataGridView";
             this.tipAbonamentDataGridView.ReadOnly = true;
             this.tipAbonamentDataGridView.RowHeadersWidth = 74;
             this.tipAbonamentDataGridView.RowTemplate.Height = 31;
             this.tipAbonamentDataGridView.Size = new System.Drawing.Size(1225, 601);
             this.tipAbonamentDataGridView.TabIndex = 7;
+            this.tipAbonamentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tipAbonamentDataGridView_CellContentClick);
             // 
             // menuStrip
             // 
@@ -174,7 +175,7 @@
             this.Controls.Add(this.tipAbonamentDataGridView);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AbonamenteForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AbonamenteForm";

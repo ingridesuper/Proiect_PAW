@@ -102,5 +102,26 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 conn.Close();
             }
         }
+
+        //MAI TREBUIE SI SCHIMBATE TOATE PLATILE DACA PRETUL SE SCHIMBA
+        public void EditTipAbonament(int id, string nume, double pret)
+        {
+            string sql = $"update tipabonament set nume=:numeNou, pret=:pretNou where id=:id";
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("numeNou", nume));
+                    cmd.Parameters.Add(new OracleParameter("pretNou", pret));
+                    cmd.Parameters.Add(new OracleParameter("id", id));
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                conn.Close();
+            }
+        }
     }
 }

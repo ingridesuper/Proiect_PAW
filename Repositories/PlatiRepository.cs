@@ -146,11 +146,12 @@ namespace _2_1058_PISLARU_INGRID.Repositories
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
-                    cmd.Parameters.Add(new OracleParameter("id", id));
-                    cmd.Parameters.Add(new OracleParameter("statut", statut));
+                    cmd.Parameters.Add(new OracleParameter("id", OracleDbType.Int32)).Value = id;
+                    cmd.Parameters.Add(new OracleParameter("statut", OracleDbType.Varchar2)).Value = statut;
                     cmd.Parameters.Add(new OracleParameter("dueDate", OracleDbType.Date)).Value = dueDate;
                     cmd.ExecuteNonQuery(); 
                 }
+                //nu functioneaza!!!! expected number got date
 
                 conn.Close();
             }

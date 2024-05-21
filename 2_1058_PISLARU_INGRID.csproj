@@ -119,6 +119,12 @@
     <Compile Include="EditForms\EditPlataForm.Designer.cs">
       <DependentUpon>EditPlataForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditForms\EditTipAbonamentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForms\EditTipAbonamentForm.Designer.cs">
+      <DependentUpon>EditTipAbonamentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainPageForms\AbonamenteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditForms\EditPlataForm.resx">
       <DependentUpon>EditPlataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditForms\EditTipAbonamentForm.resx">
+      <DependentUpon>EditTipAbonamentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPageForms\AbonamenteForm.resx">
       <DependentUpon>AbonamenteForm.cs</DependentUpon>

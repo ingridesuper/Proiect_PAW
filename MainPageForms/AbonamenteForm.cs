@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _2_1058_PISLARU_INGRID.EditForms;
 
 namespace _2_1058_PISLARU_INGRID
 {
@@ -39,6 +40,7 @@ namespace _2_1058_PISLARU_INGRID
             tipAbonamentDataGridView.AutoGenerateColumns = true;
             tipAbonamentDataGridView.DataSource = _tipAbonamentRepository.FetchAllTipAbonament(_currentPage, _pageSize);
             CreateButtonColumn("Delete", "Delete", "Delete");
+            CreateButtonColumn("Edit", "Edit", "Edit");
         }
 
         private void CreateButtonColumn(string headerText, string buttonText, string columnName)
@@ -126,15 +128,9 @@ namespace _2_1058_PISLARU_INGRID
 
         private void tipAbonamentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //It gets the name of the column that was clicked based on the ColumnIndex property
-            //of the DataGridViewCellEventArgs. This allows us to determine which button column
-            //was clicked.
             var grid = (DataGridView)sender;
             var columnName = grid.Columns[e.ColumnIndex].Name;
 
-            // This line retrieves the Product object associated with the clicked row. It uses
-            // the DataBoundItem property of the DataGridViewRow to get the underlying data object
-            // bound to the row.
             var tipAbonament = (TipAbonament)grid.Rows[e.RowIndex].DataBoundItem;
 
 
@@ -157,9 +153,12 @@ namespace _2_1058_PISLARU_INGRID
                 }
 
             }
-            if (columnName == "EditColumn")
+            if (columnName == "Edit")
             {
-                //edit
+                var editTAbonamentForm=new EditTipAbonamentForm(tipAbonament);
+                editTAbonamentForm.Owner = this;
+                editTAbonamentForm.ShowDialog();
+                RefreshDataGridView();
             }
         }
     }

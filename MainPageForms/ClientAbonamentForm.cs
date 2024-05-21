@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _2_1058_PISLARU_INGRID.Entities;
+using Oracle.ManagedDataAccess.Client;
 
 namespace _2_1058_PISLARU_INGRID
 {
@@ -35,6 +37,20 @@ namespace _2_1058_PISLARU_INGRID
 
             clientAbonamentDataGridView.AutoGenerateColumns = true;
             clientAbonamentDataGridView.DataSource = _clientAbonamentRepository.FetchAllClientAbonament(_currentPage, _pageSize);
+
+            CreateButtonColumn("Dezaboneaza", "Dezaboneaza", "Delete");
+        }
+
+        private void CreateButtonColumn(string headerText, string buttonText, string columnName)
+        {
+            DataGridViewButtonColumn column = new DataGridViewButtonColumn();
+            column.HeaderText = headerText;
+            column.Text = buttonText;
+            //This means that all buttons in the column will have the same text
+            column.UseColumnTextForButtonValue = true;
+            column.Name = columnName;
+
+            clientAbonamentDataGridView.Columns.Add(column);
         }
 
         private void EvaluateButtons()
@@ -89,6 +105,59 @@ namespace _2_1058_PISLARU_INGRID
 
             EvaluateButtons();
             clientAbonamentDataGridView.DataSource = _clientAbonamentRepository.FetchAllClientAbonament(_currentPage, _pageSize);
+        }
+
+        private bool ClientulAreDeExecutatPlati(int clientId)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+                string sql = "SELECT COUNT(*) FROM plata WHERE clientid = :clientId";
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("clientId", OracleDbType.Int32).Value = clientId;
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+        }
+
+        private void clientAbonamentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //It gets the name of the column that was clicked based on the ColumnIndex property
+            //of the DataGridViewCellEventArgs. This allows us to determine which button column
+            //was clicked.
+            var grid = (DataGridView)sender;
+            var columnName = grid.Columns[e.ColumnIndex].Name;
+
+            // This line retrieves the Product object associated with the clicked row. It uses
+            // the DataBoundItem property of the DataGridViewRow to get the underlying data object
+            // bound to the row.
+            var clientAbonament = (ClientAbonament)grid.Rows[e.RowIndex].DataBoundItem;
+
+            if (columnName == "Delete")
+            {
+                if(ClientulAreDeExecutatPlati(clientAbonament.ClientId))
+                {
+                    MessageBox.Show("Clientul intai trebuie sa-si execute plata inainte sa fie dezabonat.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                var result = MessageBox.Show($"Sunteti sigur ca vreti sa dezabonati clientul {clientAbonament.ClientId}?",
+                    "Please confirm your action",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.OK)
+                {
+                    _clientAbonamentRepository.DeleteClientAbonament(clientAbonament);
+                    RefreshDataGridView();
+                }
+
+            }
+            if (columnName == "EditColumn")
+            {
+                //edit
+            }
         }
     }
 }

@@ -41,7 +41,7 @@ namespace _2_1058_PISLARU_INGRID
 
             clientDataGridView.AutoGenerateColumns = true;
             clientDataGridView.DataSource = _clientRepository.FetchAllClients(_currentPage, _pageSize);
-            CreateButtonColumn("Delete", "Delete", "DeleteClient");
+            CreateButtonColumn("Delete", "Delete", "Delete");
         }
 
         private void CreateButtonColumn(string headerText, string buttonText, string columnName)
@@ -213,15 +213,15 @@ namespace _2_1058_PISLARU_INGRID
             // bound to the row.
             var client = (Client)grid.Rows[e.RowIndex].DataBoundItem;
 
-            if (columnName == "DeleteClient")
+            
+            if (columnName == "Delete")
             {
-                //de verificat ca nu apare in clientabonament
-                if(ClientulAreAbonament(client.Id))
+                if (ClientulAreAbonament(client.Id))
                 {
-                    MessageBox.Show("Acest client este asignat unui abonament si intai trebuie dezabonat.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error );
+                    MessageBox.Show("Acest client are un abonament. Intai trebuie dezabonat.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                var result = MessageBox.Show($"Are you sure you want to delete client {client.Id}?",
+                var result = MessageBox.Show($"Esti sigur ca vrei sa stergi clientul {client.Id}?",
                     "Please confirm your action",
                     MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Warning);

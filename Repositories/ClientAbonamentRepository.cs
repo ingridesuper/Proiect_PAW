@@ -6,6 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//de schimbat toate datele din baza initiala cu plata
+//pt upcoming si restanta!!!! alea introduse manual adica
+//poti face ceva care de fiecare data cand actualizeaza tabela plata se uita la due date si vede daca e 
+//upcoming sau rest/???
+
 namespace _2_1058_PISLARU_INGRID.Repositories
 {
     public class ClientAbonamentRepository
@@ -149,6 +154,23 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             }
         }
 
+        public void DeleteClientAbonament(ClientAbonament clientAbonament)
+        {
+            string sql = $"delete from clientabonament where clientid=:client and tipabonamentid=:abonament";
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("client", clientAbonament.ClientId));
+                    cmd.Parameters.Add(new OracleParameter("abonament", clientAbonament.TipAbonamentId));
+                    cmd.ExecuteNonQuery(); //de verificat ca nu s plati asociate
+                }
+
+                conn.Close();
+            }
+        }
 
     }
 }

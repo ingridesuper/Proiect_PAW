@@ -107,6 +107,12 @@
     <Compile Include="AddForms\AddTipAbonamentForm.Designer.cs">
       <DependentUpon>AddTipAbonamentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditForms\EditClientAbonamentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForms\EditClientAbonamentForm.Designer.cs">
+      <DependentUpon>EditClientAbonamentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditForms\EditClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddForms\AddTipAbonamentForm.resx">
       <DependentUpon>AddTipAbonamentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditForms\EditClientAbonamentForm.resx">
+      <DependentUpon>EditClientAbonamentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditForms\EditClientForm.resx">
       <DependentUpon>EditClientForm.cs</DependentUpon>

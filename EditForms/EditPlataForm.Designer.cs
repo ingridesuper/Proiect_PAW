@@ -115,6 +115,7 @@
             this.ClientSize = new System.Drawing.Size(1244, 819);
             this.Controls.Add(this.panel);
             this.Name = "EditPlataForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditPlataForm";
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();

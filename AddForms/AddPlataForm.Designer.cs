@@ -74,7 +74,7 @@
             this.dueDateLabel.AutoSize = true;
             this.dueDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.82081F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dueDateLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dueDateLabel.Location = new System.Drawing.Point(170, 343);
+            this.dueDateLabel.Location = new System.Drawing.Point(170, 346);
             this.dueDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dueDateLabel.Name = "dueDateLabel";
             this.dueDateLabel.Size = new System.Drawing.Size(112, 26);
@@ -136,7 +136,7 @@
             this.clientIdLabel.AutoSize = true;
             this.clientIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.82081F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientIdLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.clientIdLabel.Location = new System.Drawing.Point(189, 223);
+            this.clientIdLabel.Location = new System.Drawing.Point(177, 223);
             this.clientIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.clientIdLabel.Name = "clientIdLabel";
             this.clientIdLabel.Size = new System.Drawing.Size(105, 26);
@@ -148,7 +148,7 @@
             this.tipAbonamentIdLabel.AutoSize = true;
             this.tipAbonamentIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.82081F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tipAbonamentIdLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tipAbonamentIdLabel.Location = new System.Drawing.Point(96, 283);
+            this.tipAbonamentIdLabel.Location = new System.Drawing.Point(84, 283);
             this.tipAbonamentIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tipAbonamentIdLabel.Name = "tipAbonamentIdLabel";
             this.tipAbonamentIdLabel.Size = new System.Drawing.Size(203, 26);
@@ -163,6 +163,7 @@
             this.ClientSize = new System.Drawing.Size(1244, 819);
             this.Controls.Add(this.panel);
             this.Name = "AddPlataForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPlataForm";
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();

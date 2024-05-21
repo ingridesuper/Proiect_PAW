@@ -30,6 +30,7 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             return count;
         }
 
+
         public int GetTotalCurrentClientsCount()
         {
             int count;
@@ -154,6 +155,8 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             return data;
         }
 
+
+
         public List<Client> FetchPastClients(int currentPage, int pageSize)
         {
             var data = new List<Client>();
@@ -206,6 +209,23 @@ namespace _2_1058_PISLARU_INGRID.Repositories
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
+                    cmd.ExecuteNonQuery();
+                }
+
+                conn.Close();
+            }
+        }
+
+        public void DeleteClient(Client client)
+        {
+            string sql = $"delete from client where id=:id";
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("id", client.Id));
                     cmd.ExecuteNonQuery();
                 }
 

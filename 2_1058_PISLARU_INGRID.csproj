@@ -107,6 +107,18 @@
     <Compile Include="AddForms\AddTipAbonamentForm.Designer.cs">
       <DependentUpon>AddTipAbonamentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditForms\EditClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForms\EditClientForm.Designer.cs">
+      <DependentUpon>EditClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditForms\EditPlataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForms\EditPlataForm.Designer.cs">
+      <DependentUpon>EditPlataForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainPageForms\AbonamenteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +172,12 @@
     <EmbeddedResource Include="AddForms\AddTipAbonamentForm.resx">
       <DependentUpon>AddTipAbonamentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditForms\EditClientForm.resx">
+      <DependentUpon>EditClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditForms\EditPlataForm.resx">
+      <DependentUpon>EditPlataForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPageForms\AbonamenteForm.resx">
       <DependentUpon>AbonamenteForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,9 +223,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EditForms\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\phoneIcon.png" />
   </ItemGroup>

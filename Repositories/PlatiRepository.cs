@@ -136,5 +136,24 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 conn.Close();
             }
         }
+
+        public void EditPlata(int id, DateTime dueDate, string statut)
+        {
+            var sql = "update plata set duedate=:dueDate, statut=:statut where id=:id";
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("id", id));
+                    cmd.Parameters.Add(new OracleParameter("statut", statut));
+                    cmd.Parameters.Add(new OracleParameter("dueDate", OracleDbType.Date)).Value = dueDate;
+                    cmd.ExecuteNonQuery(); 
+                }
+
+                conn.Close();
+            }
+        }
     }
 }

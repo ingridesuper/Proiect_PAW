@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using _2_1058_PISLARU_INGRID.Entities;
 using Oracle.ManagedDataAccess.Client;
+using _2_1058_PISLARU_INGRID.EditForms;
 
 namespace _2_1058_PISLARU_INGRID
 {
@@ -236,9 +237,10 @@ namespace _2_1058_PISLARU_INGRID
             }
             if (columnName == "Edit")
             {
-                var editClientForm = new EditClientForm();
+                var editClientForm = new EditClientForm(client);
                 editClientForm.Owner = this;
                 editClientForm.ShowDialog();
+                RefreshDataGridView();
             }
         }
     }

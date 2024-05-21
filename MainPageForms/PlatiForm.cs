@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using _2_1058_PISLARU_INGRID.AddForms;
 using _2_1058_PISLARU_INGRID.Entities;
 using _2_1058_PISLARU_INGRID.Repositories;
+using _2_1058_PISLARU_INGRID.EditForms;
 
 namespace _2_1058_PISLARU_INGRID
 {
@@ -38,6 +39,7 @@ namespace _2_1058_PISLARU_INGRID
             platiDataGridView.AutoGenerateColumns = true;
             platiDataGridView.DataSource = _platiRepository.FetchAllPlati(_currentPage, _pageSize);
             CreateButtonColumn("Plateste", "Platita", "Delete");
+            CreateButtonColumn("Edit", "Edit", "Edit");
         }
 
         private void CreateButtonColumn(string headerText, string buttonText, string columnName)
@@ -134,9 +136,12 @@ namespace _2_1058_PISLARU_INGRID
                 }
 
             }
-            if (columnName == "EditColumn")
+            if (columnName == "Edit")
             {
-                //edit
+                var editPlataForm=new EditPlataForm(plata);
+                editPlataForm.Owner=this;
+                editPlataForm.ShowDialog();
+                RefreshDataGridView();
             }
         }
     }

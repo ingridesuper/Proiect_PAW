@@ -130,7 +130,7 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
                     cmd.Parameters.Add(new OracleParameter("plataId", plata.Id));
-                    cmd.ExecuteNonQuery(); //de verificat ca nu s plati asociate
+                    cmd.ExecuteNonQuery(); 
                 }
 
                 conn.Close();
@@ -146,12 +146,31 @@ namespace _2_1058_PISLARU_INGRID.Repositories
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
-                    cmd.Parameters.Add(new OracleParameter("id", OracleDbType.Int32)).Value = id;
-                    cmd.Parameters.Add(new OracleParameter("statut", OracleDbType.Varchar2)).Value = statut;
                     cmd.Parameters.Add(new OracleParameter("dueDate", OracleDbType.Date)).Value = dueDate;
+                    cmd.Parameters.Add(new OracleParameter("statut", OracleDbType.Varchar2)).Value = statut;
+                    cmd.Parameters.Add(new OracleParameter("id", OracleDbType.Int32)).Value = id;
                     cmd.ExecuteNonQuery(); 
                 }
-                //nu functioneaza!!!! expected number got date
+                //nu functioneaza!!!! expected number got date - incearca acum
+
+                conn.Close();
+            }
+        }
+
+        public void RecalculeazaSuma(int tipAbonamentId, double pretNou)
+        {
+            var sql = Constants.sqlUpdatePlatiDupaAbonament;
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("tipAbonamentId", tipAbonamentId));
+                    cmd.Parameters.Add(new OracleParameter("pretNou", pretNou));
+                    cmd.ExecuteNonQuery();
+                }
+                //nu functioneaza!!!! expected number got date - incearca acum
 
                 conn.Close();
             }

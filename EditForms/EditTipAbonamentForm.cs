@@ -50,8 +50,11 @@ namespace _2_1058_PISLARU_INGRID.EditForms
                 MessageBox.Show("Pretul trebuie sa fie un numar!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            
+            //de adaugat un ok cancel daca se modif pretul - acest lucru va duce la modificarea sumelor d eplatit
             _tipAbonamentRepository.EditTipAbonament(_tipAbonament.Id,  nume, result);
+            PlatiRepository platiRepository=new PlatiRepository();
+            platiRepository.RecalculeazaSuma(_tipAbonament.Id, result); 
             this.Close();
         }
     }

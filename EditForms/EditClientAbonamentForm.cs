@@ -24,7 +24,6 @@ namespace _2_1058_PISLARU_INGRID.EditForms
             _clientAbonamentRepository=new ClientAbonamentRepository();
             _platiRepository = new PlatiRepository();
             discountTextBox.Text=_clientAbonament.Discount.ToString();
-            dataEndDateTimePicker.Value = _clientAbonament.DataEnd;
             dataStartDateTimePicker.Value= _clientAbonament.DataStart;
         }
 
@@ -50,8 +49,7 @@ namespace _2_1058_PISLARU_INGRID.EditForms
                 discount = discount_nenul;
             }
             var dataStart = dataStartDateTimePicker.Value.Date;
-            var dataEnd = dataEndDateTimePicker.Value.Date;
-            _clientAbonamentRepository.EditClientAbonament(_clientAbonament.ClientId, _clientAbonament.TipAbonamentId, discount, dataStart, dataEnd);
+            _clientAbonamentRepository.EditClientAbonament(_clientAbonament.ClientId, _clientAbonament.TipAbonamentId, discount, dataStart);
             _platiRepository.RecalculeazaSumaPentruDiscountSchimbat(_clientAbonament.ClientId, _clientAbonament.TipAbonamentId, discount);
             this.Close();
         }

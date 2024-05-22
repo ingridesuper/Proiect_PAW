@@ -68,7 +68,6 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                         }
 
                         clientAbonament.DataStart = dataReader.GetDateTime(dataReader.GetOrdinal("DataStart"));
-                        clientAbonament.DataEnd = dataReader.GetDateTime(dataReader.GetOrdinal("DataEnd"));
                         
 
                         data.Add(clientAbonament);
@@ -131,7 +130,7 @@ namespace _2_1058_PISLARU_INGRID.Repositories
 
         public void AddClientTipAbonament(ClientAbonament clientabonament) //de adaugat eroare in caz ca end data e mai mica decat start data
         {
-            string sql = "INSERT INTO clientabonament (clientid, tipabonamentid, datastart, dataend, discount) VALUES (:clientid, :tipabonamentid, :datastart, :dataend, :discount)";
+            string sql = "INSERT INTO clientabonament (clientid, tipabonamentid, datastart, discount) VALUES (:clientid, :tipabonamentid, :datastart, :discount)";
 
             using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
             {
@@ -144,7 +143,6 @@ namespace _2_1058_PISLARU_INGRID.Repositories
 
                     // Asigură-te că formatul datei este corect
                     cmd.Parameters.Add(new OracleParameter("datastart", OracleDbType.Date)).Value = clientabonament.DataStart;
-                    cmd.Parameters.Add(new OracleParameter("dataend", OracleDbType.Date)).Value = clientabonament.DataEnd;
 
                     // Setează discount-ul corect
                     cmd.Parameters.Add(new OracleParameter("discount", OracleDbType.Double)).Value = (object)clientabonament.Discount ?? DBNull.Value;
@@ -172,9 +170,9 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             }
         }
 
-        public void EditClientAbonament(int clientId, int tipAbonamentId, double? discount,DateTime dataStart, DateTime dataEnd)
+        public void EditClientAbonament(int clientId, int tipAbonamentId, double? discount,DateTime dataStart)
         {
-            var sql = $"update clientabonament set discount=:discount, dataStart=:dataStart, dataEnd=:dataEnd where clientId=:clientId and tipabonamentId=:tipAbonamentId";
+            var sql = $"update clientabonament set discount=:discount, dataStart=:dataStart where clientId=:clientId and tipabonamentId=:tipAbonamentId";
             using(OracleConnection conn = new OracleConnection(Constants.ConnectionString))
             {
                 conn.Open();
@@ -182,7 +180,6 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 {
                     cmd.Parameters.Add(new OracleParameter("discount", discount)); //trebuie schimbata si suma
                     cmd.Parameters.Add(new OracleParameter("dataStart", dataStart));
-                    cmd.Parameters.Add(new OracleParameter("dataEnd", dataEnd));
                     cmd.Parameters.Add(new OracleParameter("clientId", clientId));
                     cmd.Parameters.Add(new OracleParameter("tipAbonamentId", tipAbonamentId));
                     cmd.ExecuteNonQuery ();

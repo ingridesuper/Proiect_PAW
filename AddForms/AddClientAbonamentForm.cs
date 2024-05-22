@@ -37,7 +37,6 @@ namespace _2_1058_PISLARU_INGRID.AddForms
             int clientId, abonamentId;
             double? discount = null;  
             var dataStart = dataStartDateTimePicker.Value.Date;
-            var dataEnd = dataEndDateTimePicker.Value.Date;
 
             if (!int.TryParse(clientIdTextBox.Text, out clientId))
             {
@@ -69,11 +68,6 @@ namespace _2_1058_PISLARU_INGRID.AddForms
                 return;
             }
 
-            if (dataStart > dataEnd)
-            {
-                MessageBox.Show("Data de inceput nu poate fi mai mare decat data de final!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             if (string.IsNullOrEmpty(discountTextBox.Text))
             {
@@ -95,7 +89,6 @@ namespace _2_1058_PISLARU_INGRID.AddForms
                 TipAbonamentId = abonamentId,
                 Discount = discount,
                 DataStart = dataStart,
-                DataEnd = dataEnd
             });
             var parentForm = (ClientAbonamentForm)this.Owner;
             parentForm.RefreshDataGridView();

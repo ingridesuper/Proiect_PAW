@@ -15,7 +15,6 @@ using _2_1058_PISLARU_INGRID.EditForms;
 
 namespace _2_1058_PISLARU_INGRID
 {
-    //STERGE COLOANA PT DATA END, CA TE INCURCA LA CLIENTI ACTUALI SAU FOSTI CLIENTI SI LA PLATI ETC
     public partial class ClientAbonamentForm : Form
     {
         private int _totalCount;

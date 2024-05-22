@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using _2_1058_PISLARU_INGRID.Entities;
-using System.Text;
-using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 
 namespace _2_1058_PISLARU_INGRID.Repositories

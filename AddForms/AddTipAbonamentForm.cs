@@ -1,11 +1,11 @@
 ﻿using _2_1058_PISLARU_INGRID.Entities;
 using _2_1058_PISLARU_INGRID.Repositories;
-using Oracle.ManagedDataAccess.Client;
+using _2_1058_PISLARU_INGRID.MainPageForms;
 using System;
 
 using System.Windows.Forms;
 
-namespace _2_1058_PISLARU_INGRID
+namespace _2_1058_PISLARU_INGRID.AddForms
 {
     public partial class AddTipAbonamentForm : Form
     {

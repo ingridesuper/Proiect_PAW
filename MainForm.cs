@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using _2_1058_PISLARU_INGRID.MainPageForms;
 
 namespace _2_1058_PISLARU_INGRID
 {

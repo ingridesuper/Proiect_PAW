@@ -2,7 +2,7 @@
 
 namespace _2_1058_PISLARU_INGRID.Entities
 {
-    public class Plata //plati ce tb sa fie efectuate in viitor
+    public class Plata //plati ce tb sa fie efectuate 
     {
         public int Id { get; set; }
         public int ClientId { get; set; }

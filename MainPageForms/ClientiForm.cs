@@ -3,8 +3,9 @@ using System;
 using System.Windows.Forms;
 using _2_1058_PISLARU_INGRID.Entities;
 using _2_1058_PISLARU_INGRID.EditForms;
+using _2_1058_PISLARU_INGRID.AddForms;
 
-namespace _2_1058_PISLARU_INGRID
+namespace _2_1058_PISLARU_INGRID.MainPageForms
 {
     public partial class ClientiForm : Form
     {
@@ -135,7 +136,7 @@ namespace _2_1058_PISLARU_INGRID
         }
 
         //astea doua nu pot deveni o singura functie??
-        
+
         private void viewOnlyCurrentClientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _currentPage = 1;
@@ -156,7 +157,7 @@ namespace _2_1058_PISLARU_INGRID
         {
             _currentPage = 1;
             _viewOnlyCurrentClients = false;
-            _viewOnlyPastClients= true;
+            _viewOnlyPastClients = true;
             _totalCount = _clientRepository.GetTotalPastClientsCount();
             _totalPages = Convert.ToInt32(Math.Ceiling((double)_totalCount / _pageSize));
 
@@ -196,7 +197,7 @@ namespace _2_1058_PISLARU_INGRID
                 if (result == DialogResult.OK)
                 {
                     _clientRepository.DeleteClient(client);
-                    RefreshDataGridView(); 
+                    RefreshDataGridView();
                 }
             }
             if (columnName == "Edit")

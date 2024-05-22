@@ -1,4 +1,4 @@
-﻿namespace _2_1058_PISLARU_INGRID
+﻿namespace _2_1058_PISLARU_INGRID.MainPageForms
 {
     partial class PlatiForm
     {

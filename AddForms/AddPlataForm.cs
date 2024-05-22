@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using _2_1058_PISLARU_INGRID.Repositories;
 using _2_1058_PISLARU_INGRID.Entities;
+using _2_1058_PISLARU_INGRID.MainPageForms;
 using Oracle.ManagedDataAccess.Client;
 
 

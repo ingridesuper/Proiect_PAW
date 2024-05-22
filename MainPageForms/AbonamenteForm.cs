@@ -3,8 +3,9 @@ using _2_1058_PISLARU_INGRID.Repositories;
 using System;
 using System.Windows.Forms;
 using _2_1058_PISLARU_INGRID.EditForms;
+using _2_1058_PISLARU_INGRID.AddForms;
 
-namespace _2_1058_PISLARU_INGRID
+namespace _2_1058_PISLARU_INGRID.MainPageForms
 {
     public partial class AbonamenteForm : Form
     {

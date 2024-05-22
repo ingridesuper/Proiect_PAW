@@ -168,6 +168,26 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                     cmd.ExecuteNonQuery(); //de verificat ca nu s plati asociate
                 }
 
+                conn.Close(); //poti sterge asta
+            }
+        }
+
+        public void EditClientAbonament(int clientId, int tipAbonamentId, double? discount,DateTime dataStart, DateTime dataEnd)
+        {
+            var sql = $"update clientabonament set discount=:discount, dataStart=:dataStart, dataEnd=:dataEnd where clientId=:clientId and tipabonamentId=:tipAbonamentId";
+            using(OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+                using(OracleCommand cmd = new OracleCommand( sql, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("discount", discount)); //trebuie schimbata si suma
+                    cmd.Parameters.Add(new OracleParameter("dataStart", dataStart));
+                    cmd.Parameters.Add(new OracleParameter("dataEnd", dataEnd));
+                    cmd.Parameters.Add(new OracleParameter("clientId", clientId));
+                    cmd.Parameters.Add(new OracleParameter("tipAbonamentId", tipAbonamentId));
+                    cmd.ExecuteNonQuery ();
+
+                }
                 conn.Close();
             }
         }

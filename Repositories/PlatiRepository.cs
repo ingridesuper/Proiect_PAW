@@ -171,5 +171,27 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 conn.Close();
             }
         }
+
+        public void RecalculeazaSumaPentruDiscountSchimbat(int clientId, int tipAbonamentId, double? discount) 
+        {
+            //actualizare toate platile pe care le are perechea asta
+            var sql = "update plata set suma = (select (1 - nvl(:discount, 0) / 100) * pret from tipabonament where id = :tipAbonamentId)  where clientid=:clientId and tipabonamentid=:tipAbonamentId";
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("discount", discount));
+                    cmd.Parameters.Add(new OracleParameter("tipAbonamentId", tipAbonamentId));
+                    cmd.Parameters.Add(new OracleParameter("clientId", clientId));
+                    
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+        
     }
 }

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using _2_1058_PISLARU_INGRID.Entities;
 using Oracle.ManagedDataAccess.Client;
+using _2_1058_PISLARU_INGRID.EditForms;
 
 namespace _2_1058_PISLARU_INGRID
 {
@@ -40,6 +41,7 @@ namespace _2_1058_PISLARU_INGRID
             clientAbonamentDataGridView.DataSource = _clientAbonamentRepository.FetchAllClientAbonament(_currentPage, _pageSize);
 
             CreateButtonColumn("Dezaboneaza", "Dezaboneaza", "Delete");
+            CreateButtonColumn("Edit", "Edit", "Edit");
         }
 
         private void CreateButtonColumn(string headerText, string buttonText, string columnName)
@@ -156,9 +158,12 @@ namespace _2_1058_PISLARU_INGRID
                 }
 
             }
-            if (columnName == "EditColumn")
+            if (columnName == "Edit")
             {
-                //edit
+                var editClientAbonamentForm = new EditClientAbonamentForm(clientAbonament);
+                editClientAbonamentForm.Owner = this;
+                editClientAbonamentForm.ShowDialog();
+                RefreshDataGridView();
             }
         }
     }

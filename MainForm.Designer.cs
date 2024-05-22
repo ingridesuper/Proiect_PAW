@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.backgroundPanel = new System.Windows.Forms.Panel();
             this.pacheteActiveButton = new System.Windows.Forms.Button();
             this.abonamenteButton = new System.Windows.Forms.Button();
@@ -123,7 +122,7 @@
             // 
             // phonePictureBox
             // 
-            this.phonePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("phonePictureBox.Image")));
+            this.phonePictureBox.Image = global::_2_1058_PISLARU_INGRID.Properties.Resources.phoneIcon;
             this.phonePictureBox.Location = new System.Drawing.Point(227, 52);
             this.phonePictureBox.Name = "phonePictureBox";
             this.phonePictureBox.Size = new System.Drawing.Size(113, 115);
@@ -141,7 +140,6 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.backgroundPanel.ResumeLayout(false);
             this.backgroundPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phonePictureBox)).EndInit();

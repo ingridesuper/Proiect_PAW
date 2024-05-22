@@ -42,9 +42,21 @@ namespace _2_1058_PISLARU_INGRID.EditForms
         private void saveButton_Click(object sender, EventArgs e)
         {
             var dueDate = dueDateDateTimePicker.Value.Date;
-            string statut=GetStatut(dueDate);
-            _platiRepository.EditPlata(_plata.Id, dueDate, statut);
-            this.Close();
+            //aici validam daca clientul nostru era abonat in acel moment
+            ClientAbonamentRepository _clientAbonamentRepository=new ClientAbonamentRepository();
+            if(_clientAbonamentRepository.ClientulEraAbonatLaDataDe(_plata, dueDate))
+            {
+                string statut = GetStatut(dueDate);
+                _platiRepository.EditPlata(_plata.Id, dueDate, statut);
+                this.Close();
+            }
+
+            else
+            {
+                MessageBox.Show("Clientul nu avea inca acest abonament la data introdusa - plata imposibila", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
         }
     }
 }

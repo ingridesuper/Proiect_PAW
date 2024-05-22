@@ -43,7 +43,7 @@ namespace _2_1058_PISLARU_INGRID
             CreateButtonColumn("Edit", "Edit", "Edit");
         }
 
-        private void CreateButtonColumn(string headerText, string buttonText, string columnName)
+        private void CreateButtonColumn(string headerText, string buttonText, string columnName) //de mutat
         {
             DataGridViewButtonColumn column = new DataGridViewButtonColumn();
             column.HeaderText = headerText;
@@ -55,7 +55,7 @@ namespace _2_1058_PISLARU_INGRID
             clientAbonamentDataGridView.Columns.Add(column);
         }
 
-        private void EvaluateButtons()
+        private void EvaluateButtons() //de mutat
         {
             previousPageButton.Enabled = true;
             nextPageButton.Enabled = true;
@@ -69,7 +69,7 @@ namespace _2_1058_PISLARU_INGRID
             }
         }
 
-        private void previousPageButton_Click(object sender, EventArgs e)
+        private void previousPageButton_Click(object sender, EventArgs e) //de mutat
         {
             _currentPage--;
             currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
@@ -79,7 +79,7 @@ namespace _2_1058_PISLARU_INGRID
             clientAbonamentDataGridView.DataSource = _clientAbonamentRepository.FetchAllClientAbonament(_currentPage, _pageSize);
         }
 
-        private void nextPageButton_Click(object sender, EventArgs e)
+        private void nextPageButton_Click(object sender, EventArgs e) //de mutat
         {
             _currentPage++;
             currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
@@ -96,7 +96,7 @@ namespace _2_1058_PISLARU_INGRID
             addClientAbonamentForm.ShowDialog();
         }
 
-        public void RefreshDataGridView()
+        public void RefreshDataGridView() //fct care sa ia ca par repoul (sau tipul lui) si sa faca refresh 
         {
             _currentPage = 1;
             _totalCount = _clientAbonamentRepository.GetTotalCount();
@@ -127,15 +127,8 @@ namespace _2_1058_PISLARU_INGRID
 
         private void clientAbonamentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //It gets the name of the column that was clicked based on the ColumnIndex property
-            //of the DataGridViewCellEventArgs. This allows us to determine which button column
-            //was clicked.
             var grid = (DataGridView)sender;
             var columnName = grid.Columns[e.ColumnIndex].Name;
-
-            // This line retrieves the Product object associated with the clicked row. It uses
-            // the DataBoundItem property of the DataGridViewRow to get the underlying data object
-            // bound to the row.
             var clientAbonament = (ClientAbonament)grid.Rows[e.RowIndex].DataBoundItem;
 
             if (columnName == "Delete")

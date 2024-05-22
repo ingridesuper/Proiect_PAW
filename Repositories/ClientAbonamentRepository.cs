@@ -128,6 +128,21 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             }
         }
 
+        public bool ClientulAreAbonament(int clientId)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+                string sql = "SELECT COUNT(*) FROM clientabonament WHERE clientid = :clientId";
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("clientId", OracleDbType.Int32).Value = clientId;
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+        }
+
         public void AddClientTipAbonament(ClientAbonament clientabonament) //de adaugat eroare in caz ca end data e mai mica decat start data
         {
             string sql = "INSERT INTO clientabonament (clientid, tipabonamentid, datastart, discount) VALUES (:clientid, :tipabonamentid, :datastart, :discount)";
@@ -187,6 +202,30 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 }
                 conn.Close();
             }
+        }
+
+        //returneaza T daca clientul platii plata era abonat la data de duedate
+        public bool ClientulEraAbonatLaDataDe(Plata plata, DateTime dueDate)
+        {
+            var sql = $"select DataStart from clientabonament where clientid=:clientId and tipabonamentid=:tipAbonamentId";
+            DateTime dataStart;
+
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("clientId", plata.ClientId));
+                    cmd.Parameters.Add(new OracleParameter("tipAbonamentId", plata.TipAbonamentId));
+                    OracleDataReader dataReader = cmd.ExecuteReader();
+                    //excpetie aici -  closed value ceva ceva???
+                    dataStart = dataReader.GetDateTime(dataReader.GetOrdinal("DataStart"));
+
+                    
+                    
+                } 
+            } 
+            return dataStart < dueDate;
         }
 
     }

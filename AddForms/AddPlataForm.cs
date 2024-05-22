@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using _2_1058_PISLARU_INGRID.Repositories;
 using _2_1058_PISLARU_INGRID.Entities;
@@ -29,34 +22,6 @@ namespace _2_1058_PISLARU_INGRID.AddForms
         }
 
 
-        private int GetNextAvailableID()
-        {
-            int newId = 0;
-
-            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
-            {
-                conn.Open();
-
-                string sql = $"SELECT MAX(id) as max FROM plata";
-
-                using (OracleCommand cmd = new OracleCommand(sql, conn))
-                {
-                    OracleDataReader dataReader = cmd.ExecuteReader();
-                    if (dataReader.Read())
-                    {
-                        if (dataReader["max"] != DBNull.Value)
-                        {
-                            newId = int.Parse(dataReader["max"].ToString()) + 1;
-                        }
-                        else
-                        {
-                            newId = 1;
-                        }
-                    }
-                }
-            }
-            return newId;
-        }
 
         //alta idee - de adaugat 10% daca plata e restanta (dar tb sa dai update si la tabela sql)
         public int GetSuma(int clientId, int abonamentId)
@@ -124,13 +89,14 @@ namespace _2_1058_PISLARU_INGRID.AddForms
                 return;
             }
             //de adaugat si cazurile in care clientul si abonamentul nu exista, dar ca functionalitate merge si asa
+            ClientAbonamentRepository clientAbonamentRepository = new ClientAbonamentRepository();
 
-            if (!_plataRepository.ClientulAreAbonamentul(clientId, abonamentId))
+            if (!clientAbonamentRepository.ClientTipAbonamentExists(clientId, abonamentId))
             {
                 MessageBox.Show("Acest client nu are acest abonament, deci nu putem cere plata.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            int id = GetNextAvailableID();
+            int id = _plataRepository.GetNextAvailableID();
 
             _plataRepository.AddPlata(new Plata
             {

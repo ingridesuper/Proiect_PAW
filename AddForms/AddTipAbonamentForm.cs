@@ -16,38 +16,7 @@ namespace _2_1058_PISLARU_INGRID
             InitializeComponent();
             _tipAbonamentRepository = new TipAbonamentRepository();
         }
-
-
-        private int GetNextAvailableID()
-        {
-            int newId = 0;
-
-            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
-            {
-                conn.Open();
-
-                string sql = $"SELECT MAX(id) as max FROM tipabonament";
-
-                using (OracleCommand cmd = new OracleCommand(sql, conn))
-                {
-                    OracleDataReader dataReader = cmd.ExecuteReader();
-                    if (dataReader.Read())
-                    {
-                        // verifica daca sunt valori în tabel
-                        if (dataReader["max"] != DBNull.Value)
-                        {
-                            newId = int.Parse(dataReader["max"].ToString()) + 1;
-                        }
-                        else
-                        {
-                            newId = 1;
-                        }
-                    }
-                }
-            }
-
-            return newId;
-        }
+       
         private void saveButton_Click(object sender, EventArgs e)
         {
             string nume = numeTextBox.Text;
@@ -65,7 +34,7 @@ namespace _2_1058_PISLARU_INGRID
                 return;
             }
 
-            int id = GetNextAvailableID(); 
+            int id = _tipAbonamentRepository.GetNextAvailableID(); 
 
             _tipAbonamentRepository.AddTipAbonament(new TipAbonament { Id = id, Nume = nume, Pret = pret });
             var parentForm = (AbonamenteForm)this.Owner;

@@ -1,23 +1,12 @@
 ﻿using _2_1058_PISLARU_INGRID.Repositories;
-using _2_1058_PISLARU_INGRID.AddForms;
 using _2_1058_PISLARU_INGRID.Entities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace _2_1058_PISLARU_INGRID.AddForms
 {
     public partial class AddClientAbonamentForm : Form
     {
-        //de sters variabila asta
-        //si de adaugat toate metodele care au treaba cu ea in alt folder
         private ClientAbonamentRepository _clientAbonamentRepository;
         public AddClientAbonamentForm()
         {
@@ -25,14 +14,12 @@ namespace _2_1058_PISLARU_INGRID.AddForms
             _clientAbonamentRepository = new ClientAbonamentRepository();
         }
 
-
-
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e) //maybe de adaugat toate validarile intr-un singur loc si pur si simplu sa fie runvalidari(int, double etc)
         {
             int clientId, abonamentId;
             double? discount = null;  
@@ -49,14 +36,16 @@ namespace _2_1058_PISLARU_INGRID.AddForms
                 MessageBox.Show("Id-ul abonamentului trebuie sa fie un numar intreg!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;  // Adaugă return pentru a opri execuția dacă există o eroare
             }
+            ClientRepository clientRepository = new ClientRepository();
 
-            if (!_clientAbonamentRepository.ClientExists(clientId))
+            if (!clientRepository.ClientExists(clientId))
             {
                 MessageBox.Show("Acest client nu exista.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            TipAbonamentRepository tipAbonamentRepository= new TipAbonamentRepository();
 
-            if (!_clientAbonamentRepository.TipAbonamentExists(abonamentId))
+            if (!tipAbonamentRepository.TipAbonamentExists(abonamentId))
             {
                 MessageBox.Show("Acest tip de abonament nu exista.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -64,19 +53,19 @@ namespace _2_1058_PISLARU_INGRID.AddForms
 
             if (_clientAbonamentRepository.ClientTipAbonamentExists(clientId, abonamentId))
             {
-                MessageBox.Show("Acest client deja are acest tip", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Acest client deja are acest tip de abonament!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
 
-            if (string.IsNullOrEmpty(discountTextBox.Text))
+            if (string.IsNullOrEmpty(discountTextBox.Text)) //validari de date intr-un singur loc
             {
                 discount = null;
             }
             else if (!double.TryParse(discountTextBox.Text, out double discount_nenul))
             {
                 MessageBox.Show("Format invalid pentru discount", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;  // Adaugă return pentru a opri execuția dacă există o eroare
+                return; 
             }
             else
             {
@@ -92,7 +81,6 @@ namespace _2_1058_PISLARU_INGRID.AddForms
             });
             var parentForm = (ClientAbonamentForm)this.Owner;
             parentForm.RefreshDataGridView();
-            // Închide formularul
             this.Close();
         }
 

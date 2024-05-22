@@ -123,5 +123,51 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 conn.Close();
             }
         }
+
+        public bool TipAbonamentExists(int abonamentId)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+                string sql = "SELECT COUNT(*) FROM tipabonament WHERE id = :abonamentId";
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("abonamentId", OracleDbType.Int32).Value = abonamentId;
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+        }
+
+        public int GetNextAvailableID()
+        {
+            int newId = 0;
+
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                string sql = $"SELECT MAX(id) as max FROM tipabonament";
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    OracleDataReader dataReader = cmd.ExecuteReader();
+                    if (dataReader.Read())
+                    {
+                        // verifica daca sunt valori în tabel
+                        if (dataReader["max"] != DBNull.Value)
+                        {
+                            newId = int.Parse(dataReader["max"].ToString()) + 1;
+                        }
+                        else
+                        {
+                            newId = 1;
+                        }
+                    }
+                }
+            }
+
+            return newId;
+        }
     }
 }

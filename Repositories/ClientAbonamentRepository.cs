@@ -81,36 +81,10 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             return data;
         }
 
-        public bool ClientExists(int clientId)
-        {
-            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
-            {
-                conn.Open();
-                string sql = "SELECT COUNT(*) FROM client WHERE id = :clientId";
-                using (OracleCommand cmd = new OracleCommand(sql, conn))
-                {
-                    cmd.Parameters.Add("clientId", OracleDbType.Int32).Value = clientId;
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
-                }
-            }
-        }
+        
 
         //nu au neaparat ce cauta aici, pot fi intr-un script general ie n au treaba cu acest repo in sine
-        public bool TipAbonamentExists(int abonamentId)
-        {
-            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
-            {
-                conn.Open();
-                string sql = "SELECT COUNT(*) FROM tipabonament WHERE id = :abonamentId";
-                using (OracleCommand cmd = new OracleCommand(sql, conn))
-                {
-                    cmd.Parameters.Add("abonamentId", OracleDbType.Int32).Value = abonamentId;
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
-                }
-            }
-        }
+        
 
         public bool ClientTipAbonamentExists(int clientId, int abonamentId)
         {
@@ -137,6 +111,21 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
                     cmd.Parameters.Add("clientId", OracleDbType.Int32).Value = clientId;
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+        }
+
+        public bool SuntClientiCuAcestAbonament(int abonamentId)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+                string sql = "SELECT COUNT(*) FROM clientabonament WHERE tipabonamentid = :abonament";
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("abonament", OracleDbType.Int32).Value = abonamentId;
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     return count > 0;
                 }

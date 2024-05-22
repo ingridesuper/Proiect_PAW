@@ -1,14 +1,6 @@
 ﻿using _2_1058_PISLARU_INGRID.Entities;
 using _2_1058_PISLARU_INGRID.Repositories;
-using Oracle.ManagedDataAccess.Client;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using _2_1058_PISLARU_INGRID.EditForms;
 
@@ -43,19 +35,18 @@ namespace _2_1058_PISLARU_INGRID
             CreateButtonColumn("Edit", "Edit", "Edit");
         }
 
-        private void CreateButtonColumn(string headerText, string buttonText, string columnName)
+        private void CreateButtonColumn(string headerText, string buttonText, string columnName) //de mutat
         {
             DataGridViewButtonColumn column = new DataGridViewButtonColumn();
             column.HeaderText = headerText;
             column.Text = buttonText;
-            //This means that all buttons in the column will have the same text
             column.UseColumnTextForButtonValue = true;
             column.Name = columnName;
 
             tipAbonamentDataGridView.Columns.Add(column);
         }
 
-        private void EvaluateButtons()
+        private void EvaluateButtons() //de mutat
         {
             previousPageButton.Enabled = true;
             nextPageButton.Enabled = true;
@@ -69,7 +60,7 @@ namespace _2_1058_PISLARU_INGRID
             }
         }
 
-        private void previousPageButton_Click(object sender, EventArgs e)
+        private void previousPageButton_Click(object sender, EventArgs e) //mutat, gen
         {
             _currentPage--;
             currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
@@ -79,7 +70,7 @@ namespace _2_1058_PISLARU_INGRID
             tipAbonamentDataGridView.DataSource = _tipAbonamentRepository.FetchAllTipAbonament(_currentPage, _pageSize);
         }
 
-        private void nextPageButton_Click(object sender, EventArgs e)
+        private void nextPageButton_Click(object sender, EventArgs e) //mutat, gen
         {
             _currentPage++;
             currentPageTextBox.Text = $"{_currentPage} / {_totalPages}";
@@ -97,7 +88,7 @@ namespace _2_1058_PISLARU_INGRID
             addTipAbonamentForm.ShowDialog();
         }
 
-        public void RefreshDataGridView()
+        public void RefreshDataGridView() //same
         {
             _currentPage = 1;
             _totalCount = _tipAbonamentRepository.GetTotalCount();
@@ -110,33 +101,16 @@ namespace _2_1058_PISLARU_INGRID
             tipAbonamentDataGridView.DataSource = _tipAbonamentRepository.FetchAllTipAbonament(_currentPage, _pageSize);
         }
 
-
-        public bool SuntClientiCuAcestAbonament(int abonamentId)
-        {
-            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
-            {
-                conn.Open();
-                string sql = "SELECT COUNT(*) FROM clientabonament WHERE tipabonamentid = :abonament";
-                using (OracleCommand cmd = new OracleCommand(sql, conn))
-                {
-                    cmd.Parameters.Add("abonament", OracleDbType.Int32).Value = abonamentId;
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
-                }
-            }
-        }
-
         private void tipAbonamentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var grid = (DataGridView)sender;
             var columnName = grid.Columns[e.ColumnIndex].Name;
-
             var tipAbonament = (TipAbonament)grid.Rows[e.RowIndex].DataBoundItem;
-
 
             if (columnName == "Delete")
             {
-                if (SuntClientiCuAcestAbonament(tipAbonament.Id))
+                ClientAbonamentRepository clientAbonamentRepository = new ClientAbonamentRepository();
+                if (clientAbonamentRepository.SuntClientiCuAcestAbonament(tipAbonament.Id))
                 {
                     MessageBox.Show("Sunt clienti care au acest abonament.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

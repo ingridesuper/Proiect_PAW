@@ -2,7 +2,6 @@
 using System;
 using System.Windows.Forms;
 using _2_1058_PISLARU_INGRID.Entities;
-using Oracle.ManagedDataAccess.Client;
 using _2_1058_PISLARU_INGRID.EditForms;
 
 namespace _2_1058_PISLARU_INGRID

@@ -29,7 +29,7 @@ namespace _2_1058_PISLARU_INGRID.EditForms
             Close();
         }
 
-        public string GetStatut(DateTime dueDate) //pune astea in alte foldere
+        public string GetStatut(DateTime dueDate)
         {
             if (dueDate < DateTime.Today)
             {
@@ -38,7 +38,6 @@ namespace _2_1058_PISLARU_INGRID.EditForms
             return "Upcoming";
         }
 
-        //de schimbat si statutul!
         private void saveButton_Click(object sender, EventArgs e)
         {
             var dueDate = dueDateDateTimePicker.Value.Date;

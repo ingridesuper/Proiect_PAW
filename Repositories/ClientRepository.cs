@@ -31,6 +31,37 @@ namespace _2_1058_PISLARU_INGRID.Repositories
         }
 
 
+        public int GetNextAvailableID()
+        {
+            int newId = 0;
+
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                string sql = $"SELECT MAX(id) as max FROM client";
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    OracleDataReader dataReader = cmd.ExecuteReader();
+                    if (dataReader.Read())
+                    {
+                        if (dataReader["max"] != DBNull.Value)
+                        {
+                            newId = int.Parse(dataReader["max"].ToString()) + 1;
+                        }
+                        else
+                        {
+                            newId = 1;
+                        }
+                    }
+                }
+            }
+
+            return newId;
+        }
+
+
         public int GetTotalCurrentClientsCount()
         {
             int count;
@@ -250,6 +281,21 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 }
 
                 conn.Close();
+            }
+        }
+
+        public bool ClientExists(int clientId)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+                string sql = "SELECT COUNT(*) FROM client WHERE id = :clientId";
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("clientId", OracleDbType.Int32).Value = clientId;
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
             }
         }
     }

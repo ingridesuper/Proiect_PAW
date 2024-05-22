@@ -2,13 +2,7 @@
 using _2_1058_PISLARU_INGRID.Repositories;
 using Oracle.ManagedDataAccess.Client;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _2_1058_PISLARU_INGRID
@@ -23,43 +17,12 @@ namespace _2_1058_PISLARU_INGRID
             _clientRepository = new ClientRepository();
         }
 
-        //de mutat metodele astea in repository
-        private int GetNextAvailableID()
-        {
-            int newId = 0;
-
-            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
-            {
-                conn.Open();
-
-                string sql = $"SELECT MAX(id) as max FROM client";
-
-                using (OracleCommand cmd = new OracleCommand(sql, conn))
-                {
-                    OracleDataReader dataReader = cmd.ExecuteReader();
-                    if (dataReader.Read())
-                    {
-                        if (dataReader["max"] != DBNull.Value)
-                        {
-                            newId = int.Parse(dataReader["max"].ToString()) + 1;
-                        }
-                        else
-                        {
-                            newId = 1;
-                        }
-                    }
-                }
-            }
-
-            return newId;
-        }
-
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e) //de adaugat vaidarile intr-un tip special
         {
             string nume = numeTextBox.Text;
             if (string.IsNullOrWhiteSpace(nume))
@@ -84,12 +47,10 @@ namespace _2_1058_PISLARU_INGRID
                 MessageBox.Show("Numarul de telefon trebuie sa fie format doar din cifre.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            int id = GetNextAvailableID();
-
+            int id = _clientRepository.GetNextAvailableID();
             _clientRepository.AddClient(new Client { Id = id, Nume = nume, Email=email, Telefon=telefon });
             var parentForm = (ClientiForm)this.Owner;
             parentForm.RefreshDataGridView();
-            // Închide formularul
             this.Close();
         }
     }

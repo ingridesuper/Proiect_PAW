@@ -1,13 +1,6 @@
 ﻿using _2_1058_PISLARU_INGRID.Entities;
 using _2_1058_PISLARU_INGRID.Repositories;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _2_1058_PISLARU_INGRID.EditForms
@@ -49,9 +42,26 @@ namespace _2_1058_PISLARU_INGRID.EditForms
                 discount = discount_nenul;
             }
             var dataStart = dataStartDateTimePicker.Value.Date;
-            _clientAbonamentRepository.EditClientAbonament(_clientAbonament.ClientId, _clientAbonament.TipAbonamentId, discount, dataStart);
-            _platiRepository.RecalculeazaSumaPentruDiscountSchimbat(_clientAbonament.ClientId, _clientAbonament.TipAbonamentId, discount);
-            this.Close();
+
+            if (discount != _clientAbonament.Discount)
+            {
+                var option = MessageBox.Show($"Esti sigur ca vrei sa modifici discountul acestui client? Acest lucru va duce si la schimbarea sumei de platit.",
+                    "Please confirm your action",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning);
+
+                if (option == DialogResult.OK)
+                {
+                    _clientAbonamentRepository.EditClientAbonament(_clientAbonament.ClientId, _clientAbonament.TipAbonamentId, discount, dataStart);
+                    _platiRepository.RecalculeazaSumaPentruDiscountSchimbat(_clientAbonament.ClientId, _clientAbonament.TipAbonamentId, discount);
+                    this.Close();
+                }
+            }
+            else
+            {
+                _clientAbonamentRepository.EditClientAbonament(_clientAbonament.ClientId, _clientAbonament.TipAbonamentId, discount, dataStart);
+                this.Close();
+            }
         }
     }
 }

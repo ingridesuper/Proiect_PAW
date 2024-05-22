@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using _2_1058_PISLARU_INGRID.Entities;
 using _2_1058_PISLARU_INGRID.Repositories;
@@ -36,7 +30,7 @@ namespace _2_1058_PISLARU_INGRID.EditForms
             string nume=numeTextBox.Text;
             if (string.IsNullOrWhiteSpace(nume))
             {
-                MessageBox.Show("Numele nu poate fi gol.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Numele nu poate fi gol.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error); //validarile in alt loc
                 return;
             }
             string email = emailTextBox.Text;

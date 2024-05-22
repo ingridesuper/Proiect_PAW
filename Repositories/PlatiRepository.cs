@@ -79,6 +79,35 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             return data;
         }
 
+        public int GetNextAvailableID()
+        {
+            int newId = 0;
+
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                string sql = $"SELECT MAX(id) as max FROM plata";
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    OracleDataReader dataReader = cmd.ExecuteReader();
+                    if (dataReader.Read())
+                    {
+                        if (dataReader["max"] != DBNull.Value)
+                        {
+                            newId = int.Parse(dataReader["max"].ToString()) + 1;
+                        }
+                        else
+                        {
+                            newId = 1;
+                        }
+                    }
+                }
+            }
+            return newId;
+        }
+
 
         //cumva functioneaza si pentru cazurile in cale clientul sau abonamentul nu exista
         //de comasat cu cealalta met de la add clientabonament
@@ -92,6 +121,22 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 {
                     cmd.Parameters.Add("clientId", OracleDbType.Int32).Value = clientId;
                     cmd.Parameters.Add("abonamentId", OracleDbType.Int32).Value = abonamentId;
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+        }
+
+        public bool ClientulAreDeExecutatPlati(int clientId, int abonamentId)
+        {
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+                string sql = "SELECT COUNT(*) FROM plata WHERE clientid = :clientId and tipabonamentid=:tipabonament";
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("clientId", OracleDbType.Int32).Value = clientId;
+                    cmd.Parameters.Add("tipabonament", OracleDbType.Int32).Value = abonamentId;
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     return count > 0;
                 }

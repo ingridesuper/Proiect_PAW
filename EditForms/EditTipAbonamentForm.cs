@@ -1,12 +1,5 @@
 ﻿using _2_1058_PISLARU_INGRID.Entities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using _2_1058_PISLARU_INGRID.Repositories;
 
@@ -23,7 +16,6 @@ namespace _2_1058_PISLARU_INGRID.EditForms
             _tipAbonamentRepository=new TipAbonamentRepository();
             numeTextBox.Text = tipAbonament.Nume;
             pretTextBox.Text=tipAbonament.Pret.ToString();
-
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -50,12 +42,28 @@ namespace _2_1058_PISLARU_INGRID.EditForms
                 MessageBox.Show("Pretul trebuie sa fie un numar!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if (result != _tipAbonament.Pret)
+            {
+                var option = MessageBox.Show($"Esti sigur ca vrei sa modifici suma abonamentului {_tipAbonament.Id}? Acest lucru va duce si la schimbarea sumei de platit.",
+                    "Please confirm your action",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning);
+
+                if (option == DialogResult.OK)
+                {
+                    _tipAbonamentRepository.EditTipAbonament(_tipAbonament.Id, nume, result);
+                    PlatiRepository platiRepository = new PlatiRepository();
+                    platiRepository.RecalculeazaSuma(_tipAbonament.Id, result);
+                    this.Close();
+                }
+            }
+            else
+            {
+                _tipAbonamentRepository.EditTipAbonament(_tipAbonament.Id, nume, result);
+                this.Close();
+            }
             
-            //de adaugat un ok cancel daca se modif pretul - acest lucru va duce la modificarea sumelor d eplatit
-            _tipAbonamentRepository.EditTipAbonament(_tipAbonament.Id,  nume, result);
-            PlatiRepository platiRepository=new PlatiRepository();
-            platiRepository.RecalculeazaSuma(_tipAbonament.Id, result); 
-            this.Close();
         }
     }
 }

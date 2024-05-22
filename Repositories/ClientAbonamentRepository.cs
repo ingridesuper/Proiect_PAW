@@ -193,7 +193,7 @@ namespace _2_1058_PISLARU_INGRID.Repositories
         //returneaza T daca clientul platii plata era abonat la data de duedate
         public bool ClientulEraAbonatLaDataDe(Plata plata, DateTime dueDate)
         {
-            var sql = $"select DataStart from clientabonament where clientid=:clientId and tipabonamentid=:tipAbonamentId";
+            var sql = "select DataStart from clientabonament where clientid = :clientId and tipabonamentid = :tipAbonamentId";
             DateTime dataStart;
 
             using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
@@ -203,16 +203,23 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 {
                     cmd.Parameters.Add(new OracleParameter("clientId", plata.ClientId));
                     cmd.Parameters.Add(new OracleParameter("tipAbonamentId", plata.TipAbonamentId));
-                    OracleDataReader dataReader = cmd.ExecuteReader();
-                    //excpetie aici -  closed value ceva ceva???
-                    dataStart = dataReader.GetDateTime(dataReader.GetOrdinal("DataStart"));
 
-                    
-                    
-                } 
-            } 
+                    using (OracleDataReader dataReader = cmd.ExecuteReader())
+                    {
+                        if (dataReader.Read()) // Avansează la primul rând
+                        {
+                            dataStart = dataReader.GetDateTime(dataReader.GetOrdinal("DataStart"));
+                        }
+                        else //deja am verificat practic, deci nu se va ajunge pe ramura asta (daca o scoti nu mai e valid datastart)
+                        {
+                            throw new Exception("Nu s-au găsit înregistrări corespunzătoare în tabelul clientabonament.");
+                        }
+                    }
+                }
+            }
             return dataStart < dueDate;
         }
+
 
     }
 }

@@ -7,7 +7,6 @@ namespace _2_1058_PISLARU_INGRID.Repositories
 {
     public class ClientRepository
     {
-
         public int GetTotalCount()
         {
             int count;
@@ -184,7 +183,6 @@ namespace _2_1058_PISLARU_INGRID.Repositories
         }
 
 
-
         public List<Client> FetchPastClients(int currentPage, int pageSize)
         {
             var data = new List<Client>();
@@ -229,7 +227,7 @@ namespace _2_1058_PISLARU_INGRID.Repositories
 
         public void AddClient(Client client)
         {
-            string sql = $"INSERT INTO client(id, nume, email, telefon) VALUES ('{client.Id}', '{client.Nume}', '{client.Email}', '{client.Telefon}')";
+            string sql = "INSERT INTO client(id, nume, email, telefon) VALUES (:id, :nume, :email, :telefon)";
 
             using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
             {
@@ -237,12 +235,16 @@ namespace _2_1058_PISLARU_INGRID.Repositories
 
                 using (OracleCommand cmd = new OracleCommand(sql, conn))
                 {
+                    cmd.Parameters.Add(new OracleParameter("id", client.Id));
+                    cmd.Parameters.Add(new OracleParameter("nume", client.Nume));
+                    cmd.Parameters.Add(new OracleParameter("email", client.Email));
+                    cmd.Parameters.Add(new OracleParameter("telefon", client.Telefon));
+
                     cmd.ExecuteNonQuery();
                 }
-
-                conn.Close();
             }
         }
+
 
         public void DeleteClient(Client client)
         {

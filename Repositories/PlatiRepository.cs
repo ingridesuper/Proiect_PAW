@@ -105,9 +105,6 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             return newId;
         }
 
-
-        //cumva functioneaza si pentru cazurile in cale clientul sau abonamentul nu exista
-        //de comasat cu cealalta met de la add clientabonament
         public bool ClientulAreAbonamentul (int clientId, int abonamentId)
         {
             string sql = "SELECT COUNT(*) FROM clientabonament WHERE clientid = :clientId and tipabonamentid=:abonamentId";
@@ -252,8 +249,6 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 }
             }
         }
-
-
 
     }
 }

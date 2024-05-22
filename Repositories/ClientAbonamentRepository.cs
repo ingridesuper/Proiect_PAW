@@ -3,11 +3,6 @@ using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 
-//de schimbat toate datele din baza initiala cu plata
-//pt upcoming si restanta!!!! alea introduse manual adica
-//poti face ceva care de fiecare data cand actualizeaza tabela plata se uita la due date si vede daca e 
-//upcoming sau rest/???
-
 namespace _2_1058_PISLARU_INGRID.Repositories
 {
     public class ClientAbonamentRepository
@@ -76,12 +71,7 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             }
 
             return data;
-        }
-
-        
-
-        //nu au neaparat ce cauta aici, pot fi intr-un script general ie n au treaba cu acest repo in sine
-        
+        }        
 
         public bool ClientTipAbonamentExists(int clientId, int abonamentId)
         {
@@ -129,7 +119,7 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             }
         }
 
-        public void AddClientTipAbonament(ClientAbonament clientabonament) //de adaugat eroare in caz ca end data e mai mica decat start data
+        public void AddClientTipAbonament(ClientAbonament clientabonament) 
         {
             string sql = "INSERT INTO clientabonament (clientid, tipabonamentid, datastart, discount) VALUES (:clientid, :tipabonamentid, :datastart, :discount)";
 
@@ -142,10 +132,8 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                     cmd.Parameters.Add(new OracleParameter("clientid", clientabonament.ClientId));
                     cmd.Parameters.Add(new OracleParameter("tipabonamentid", clientabonament.TipAbonamentId));
 
-                    // Asigură-te că formatul datei este corect
                     cmd.Parameters.Add(new OracleParameter("datastart", OracleDbType.Date)).Value = clientabonament.DataStart;
 
-                    // Setează discount-ul corect
                     cmd.Parameters.Add(new OracleParameter("discount", OracleDbType.Double)).Value = (object)clientabonament.Discount ?? DBNull.Value;
 
                     cmd.ExecuteNonQuery();
@@ -164,10 +152,8 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 {
                     cmd.Parameters.Add(new OracleParameter("client", clientAbonament.ClientId));
                     cmd.Parameters.Add(new OracleParameter("abonament", clientAbonament.TipAbonamentId));
-                    cmd.ExecuteNonQuery(); //de verificat ca nu s plati asociate
+                    cmd.ExecuteNonQuery();
                 }
-
-                conn.Close(); //poti sterge asta
             }
         }
 
@@ -179,7 +165,7 @@ namespace _2_1058_PISLARU_INGRID.Repositories
                 conn.Open();
                 using(OracleCommand cmd = new OracleCommand( sql, conn))
                 {
-                    cmd.Parameters.Add(new OracleParameter("discount", discount)); //trebuie schimbata si suma
+                    cmd.Parameters.Add(new OracleParameter("discount", discount));
                     cmd.Parameters.Add(new OracleParameter("dataStart", dataStart));
                     cmd.Parameters.Add(new OracleParameter("clientId", clientId));
                     cmd.Parameters.Add(new OracleParameter("tipAbonamentId", tipAbonamentId));
@@ -190,7 +176,7 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             }
         }
 
-        //returneaza T daca clientul platii plata era abonat la data de duedate
+        //returneaza true daca clientul platii plata era abonat la abonamentul platii la data de duedate
         public bool ClientulEraAbonatLaDataDe(Plata plata, DateTime dueDate)
         {
             var sql = "select DataStart from clientabonament where clientid = :clientId and tipabonamentid = :tipAbonamentId";

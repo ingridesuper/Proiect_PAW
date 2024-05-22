@@ -35,7 +35,7 @@ namespace _2_1058_PISLARU_INGRID.EditForms
             else if (!double.TryParse(discountTextBox.Text, out double discount_nenul))
             {
                 MessageBox.Show("Format invalid pentru discount", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;  // Adaugă return pentru a opri execuția dacă există o eroare
+                return; 
             }
             else
             {

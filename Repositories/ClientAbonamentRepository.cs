@@ -206,7 +206,7 @@ namespace _2_1058_PISLARU_INGRID.Repositories
 
                     using (OracleDataReader dataReader = cmd.ExecuteReader())
                     {
-                        if (dataReader.Read()) // Avansează la primul rând
+                        if (dataReader.Read()) 
                         {
                             dataStart = dataReader.GetDateTime(dataReader.GetOrdinal("DataStart"));
                         }

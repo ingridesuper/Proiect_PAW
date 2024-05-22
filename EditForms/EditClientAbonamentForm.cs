@@ -42,6 +42,12 @@ namespace _2_1058_PISLARU_INGRID.EditForms
                 discount = discount_nenul;
             }
             var dataStart = dataStartDateTimePicker.Value.Date;
+            PlatiRepository platiRepository = new PlatiRepository();
+            if(platiRepository.ClientulAreOPlataPtAbonamentulInainteDeDataDe(_clientAbonament, dataStart))
+            {
+                MessageBox.Show("Acest client are de efectuat plati pentru acest abonament, inainte de data introdusa!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (discount != _clientAbonament.Discount)
             {

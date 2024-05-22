@@ -234,6 +234,26 @@ namespace _2_1058_PISLARU_INGRID.Repositories
             }
         }
 
-        
+        public bool ClientulAreOPlataPtAbonamentulInainteDeDataDe(ClientAbonament clientAbonament, DateTime dataStart)
+        {
+            var sql = $"select count(*) from plata where clientid=:clientId and tipabonamentid=:tipAbonamentId and duedate<:dataStart";
+            using (OracleConnection conn = new OracleConnection(Constants.ConnectionString))
+            {
+                conn.Open();
+
+                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("clientId", clientAbonament.ClientId));
+                    cmd.Parameters.Add(new OracleParameter("tipAbonamentId", clientAbonament.TipAbonamentId));
+                    cmd.Parameters.Add(new OracleParameter("dataStart", dataStart));
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return count > 0;
+                }
+            }
+        }
+
+
+
     }
 }

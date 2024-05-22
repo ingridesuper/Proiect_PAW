@@ -11,7 +11,7 @@ in **bold** sunt PKs, in *italics* sunt FKs
 | ------------------ |:----------:| --------------:| --------- | ------- | ----- | ------ |
 | **Client**         | **ID**     | Nume           | Telefon   | Email   |       |        |
 | **TipAbonament**   | **ID**     | Nume           | Pret      |         |       |        |
-| **ClientAbonament** | **ClientId** | **TipAbonamentId** | DataStart | Discount |       |        |
+| **ClientAbonament** | **_ClientId_** | **_TipAbonamentId_** | DataStart | Discount |       |        |
 | **Plata**          | **ID**     | *ClientId*     | *TipAbonamentId* | DueDate | Suma  | Statut |
 
 

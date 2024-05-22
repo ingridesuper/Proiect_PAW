@@ -5,11 +5,11 @@ Proiect Programarea Aplicatiilor Windows - Aplicatie Furnizor de Telefonie
 ## Baza de date
 in **bold** sunt PKs, in *italics* sunt FKs
 
-|  Entitati | 
-| ------------ |
-|  Client  | **ID** | Nume | Telefon | Email |
-| TipAbonament  | **ID** | Nume  | Pret |
-|  ClientAbonament | ***ClientId*** | ***TipAbonamentId*** | DataStart | Discount |
+| Entitati        |            |         |     |    |     |        |
+| ------------- |:-------------:| -----:|         |      |
+|  Client  | **ID** | Nume | Telefon | Email |    |     |
+| TipAbonament  | **ID** | Nume  | Pret |   |     |        |
+|  ClientAbonament | ***ClientId*** | ***TipAbonamentId*** | DataStart | Discount |    |       |
 |   Plata | **ID** | *ClientId* | *TipAbonamentId* | DueDate | Suma | Statut|
 
 

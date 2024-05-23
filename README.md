@@ -53,3 +53,4 @@ in **bold** sunt PKs, in *italics* sunt FKs
 	
 - Totusi, minusul este ca nu am implementat triggeri in baza de date. In acest moment, toate datele din tabele respecta logica (pretul unei plati este calculat conform discountul clientului si a pretului abonamentului, due date si data start sunt puse in ordine logica etc), dar asta pentru ca atunci cand le-am introdus am avut grija sa fie asa.
 - Cu alte cuvinte, daca interactionam cu baza de date doar prin intermediul aplicatiei, records-urile introduse sau modificate o sa-si mentina logica. Dar daca interactionam direct prin SQL Developer, nu neaparat, pentru ca nu am mai implementat triggerii respectivi.
+- In plus, nu stiu cum as putea sa fac coloana statut din tabela plata sa se schimbe mereu, automat, in functie de ziua de azi.
